@@ -1,0 +1,58 @@
+Execution environment: Python 3.13.5 | Linux-6.18.57-x86_64-with-glibc2.41 | 2026-11-14T15:05:10+00:00
+Command: /opt/pyvenv/bin/python Python_Scripts/task12_ownership_demo.py
+Exit code: 0
+
+--- STDOUT ---
+{
+  "baseline_single_owner_at_2026_11_30": [
+    [
+      42,
+      100.0,
+      "2020-01-01",
+      "2026-11-30",
+      "MIGRATED_KNOWN_START"
+    ]
+  ],
+  "new_shared_owners_at_2026_12_01": [
+    [
+      41,
+      50.0,
+      "2026-12-01",
+      null,
+      "VERIFIED_HISTORY"
+    ],
+    [
+      141,
+      50.0,
+      "2026-12-01",
+      null,
+      "VERIFIED_HISTORY"
+    ]
+  ],
+  "active_custody_unchanged": [
+    "LN-RET-000001",
+    "ACTIVE",
+    "2026-06-01",
+    null
+  ],
+  "share_totals": {
+    "2026-11-30": 100.0,
+    "2026-12-01": 100.0
+  },
+  "invalid_share_sum_rows": [],
+  "migration_rows_with_unknown_start": 18,
+  "relationship_counts": {
+    "artifact_owner_rows_before_transition": 200,
+    "artifact_owner_rows_after_transition": 202,
+    "loan_object_rows_before_after": [
+      201,
+      201
+    ],
+    "condition_report_rows_before_after": [
+      151,
+      151
+    ]
+  }
+}
+
+--- STDERR ---

@@ -1,0 +1,16 @@
+Execution environment: Python 3.13.5 | Linux-6.18.57-x86_64-with-glibc2.41 | 2026-11-14T15:05:10+00:00
+Command: /opt/pyvenv/bin/python Python_Scripts/flat_file_anomalies.py
+Exit code: 0
+
+--- STDOUT ---
+BASE FLAT FILE:
+loan_no,lender_name,lender_email,artifact_accession,artifact_title,loan_date
+LN-01,Anita Rao,anita@example.test,MM-01,Bronze lamp,2026-02-01
+LN-02,Anita Rao,anita@example.test,MM-02,Temple bell,2026-03-01
+LN-03,B. Kumar,bk@example.test,MM-03,Silk panel,2026-04-01
+
+INSERTION ANOMALY: lender C. Das with no loan cannot be stored in this row structure; no row exists for that lender.
+UPDATE ANOMALY: after correcting only first row, Anita email values = ['new-anita@example.test', 'anita@example.test']
+DELETION ANOMALY: after deleting B. Kumar's only loan row, B. Kumar has no remaining lender record.
+
+--- STDERR ---

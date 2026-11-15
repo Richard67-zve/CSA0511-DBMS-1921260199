@@ -1,0 +1,19 @@
+digraph RevisedEER {
+ graph [rankdir=LR, splines=ortho, nodesep=.65, ranksep=.9, bgcolor=white, pad=.25, label="TASK 12 - REVISED OWNERSHIP MODEL (EFFECTIVE-DATED CO-OWNERSHIP)", labelloc=t, fontsize=20, fontname=Arial];
+ node [fontname=Arial, fontsize=11, color="#164A72", penwidth=1.4, style="rounded,filled", fillcolor="#DDEBF7"];
+ edge [fontname=Arial, fontsize=10, color="#44566C"];
+ ART [shape=box,label="ARTIFACT\nArtifactID (PK)\nAccessionNo (AK)\nCanonical physical identity"];
+ OWNER [shape=box,label="ARTIFACT_OWNER\nArtifactID + PartyID + ValidFrom (PK)\nSharePercent\nValidTo / SourceQuality"];
+ PARTY [shape=box,label="PARTY\nPartyID (PK)\nPerson or Organization"];
+ LO [shape=box,label="LOAN_OBJECT\nLoanID + ArtifactID (PK)\nCustodyStart / CustodyEnd\nLoanLineValue"];
+ LOAN [shape=box,label="LOAN\nLoanID (PK)\nLenderPartyID (FK)\nExpectedReturn / Status"];
+ CR [shape=box,label="CONDITION_REPORT\nReportID (PK)\nLoanID + ArtifactID (FK)\nReportDate / Stage / Condition"];
+ R1 [shape=diamond,label="HAS OWNER\nM:N over time",style=filled,fillcolor="#FCE4D6"];
+ R2 [shape=diamond,label="ON LOAN\nseparate custody",style=filled,fillcolor="#FCE4D6"];
+ R3 [shape=diamond,label="HAS EVIDENCE\n1:N",style=filled,fillcolor="#FCE4D6"];
+ ART -> R1 [arrowhead=none,label="1..N owners by date"];
+ R1 -> OWNER [arrowhead=none]; PARTY -> R1 [arrowhead=none,label="1..N artifacts"];
+ ART -> LO [arrowhead=none,label="physical item"];
+ LOAN -> R2 [arrowhead=none]; R2 -> LO [arrowhead=none];
+ LO -> R3 [arrowhead=none]; R3 -> CR [arrowhead=none];
+}

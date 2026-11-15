@@ -1,0 +1,33 @@
+digraph ERPart2 {
+ graph [rankdir=TB, splines=polyline, nodesep=.5, ranksep=.65, bgcolor=white, pad=.2, label="CHEN ER - PART 2: SHARED IDENTITY, ROLES AND SUPPORTING ENTITIES", labelloc=t, fontsize=17, fontname=Arial];
+ node [fontname=Arial, fontsize=10, color="#164A72", penwidth=1.2]; edge [fontname=Arial, fontsize=9, color="#44566C"];
+ PARTY [shape=box,style=filled,fillcolor="#DDEBF7",label="PARTY\nPartyID (PK), PartyKind"];
+ PERSON [shape=box,style=filled,fillcolor="#DDEBF7",label="PERSON\nPartyID (PK/FK)\nFirstName, MiddleName, LastName, Email"];
+ ORG [shape=box,style=filled,fillcolor="#DDEBF7",label="ORGANIZATION\nPartyID (PK/FK)\nLegalName, RegistrationNo"];
+ EMP [shape=box,style=filled,fillcolor="#DDEBF7",label="EMPLOYEE\nPersonID (PK/FK), EmployeeNo (AK), Role"];
+ CUR [shape=box,style=filled,fillcolor="#EAF3F8",label="CURATOR\nPersonID (PK/FK), Specialisation"];
+ REG [shape=box,style=filled,fillcolor="#EAF3F8",label="REGISTRAR\nPersonID (PK/FK), ClearanceLevel"];
+ LENDER [shape=box,style=filled,fillcolor="#EAF3F8",label="LENDER ROLE\nPartyID (PK/FK), LenderCode (AK), JoinedOn"];
+ PHONE [shape=box,style=filled,fillcolor="#EAF3F8",label="PERSON_PHONE (MULTIVALUED)\nPartyID + PhoneType + PhoneNumber (PK)"];
+ CONTACT [shape=box,style=filled,fillcolor="#EAF3F8",label="NOTIFICATION_CONTACT (UNION CATEGORY)\nContactID (PK), PersonID XOR OrganizationID\nContactLabel, Email, Phone"];
+ CONTACT_MAP [shape=box,style=filled,fillcolor="#EAF3F8",label="LOAN_NOTIFICATION_CONTACT\nLoanID + ContactID + Purpose (PK)"];
+ UNIT [shape=box,style=filled,fillcolor="#EAF3F8",label="COLLECTION_UNIT\nUnitID (PK), UnitName (AK)"];
+ TYPE [shape=box,style=filled,fillcolor="#EAF3F8",label="COLLECTION_TYPE\nTypeID (PK), TypeName (AK), Description"];
+ ART [shape=box,style=filled,fillcolor="#DDEBF7",label="ARTIFACT\nArtifactID (PK), UnitID (FK), TypeID (FK)"];
+ ISA1 [shape=triangle,orientation=270,style=filled,fillcolor="#FFF2CC",label="ISA\nPERSON / ORGANIZATION"];
+ ISA2 [shape=triangle,orientation=270,style=filled,fillcolor="#FFF2CC",label="ISA\nTOTAL, DISJOINT"];
+ R1 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="HAS PHONE"];
+ R2 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="CLASSIFIES"];
+ R3 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="HAS TYPE"];
+ {rank=same; PERSON; ORG;}
+ {rank=same; CUR; REG; LENDER; PHONE;}
+ PARTY -> ISA1 [arrowhead=none]; ISA1 -> PERSON [arrowhead=none]; ISA1 -> ORG [arrowhead=none];
+ PERSON -> EMP [arrowhead=empty,label="employee role"];
+ EMP -> ISA2 [arrowhead=none]; ISA2 -> CUR [arrowhead=empty]; ISA2 -> REG [arrowhead=empty];
+ PERSON -> LENDER [arrowhead=empty,label="roles may overlap"];
+ PERSON -> R1 [arrowhead=none,label="1"]; R1 -> PHONE [arrowhead=none,label="0..N"];
+ UNIT -> R2 [arrowhead=none,label="1"]; R2 -> ART [arrowhead=none,label="0..N"];
+ TYPE -> R3 [arrowhead=none,label="1"]; R3 -> ART [arrowhead=none,label="0..N"];
+ PARTY -> CONTACT [style=dashed,label="union parent concept"];
+ CONTACT -> CONTACT_MAP [arrowhead=none,label="1"]; CONTACT_MAP -> ART [style=invis];
+}

@@ -1,0 +1,18 @@
+MYSQL EXECUTION ORDER (requires MySQL Server 8.0.16+)
+
+1. 01_schema_mysql.sql
+   Creates/resets the meridian_museum schema and baseline relations.
+   WARNING: Drops/recreates assignment tables. Back up first.
+
+2. Python_Scripts/load_mysql.py --size 100 (or 1000 / 10000 / 100000)
+   Loads reproducible sample data using seed 4211.
+
+3. 03_validation_queries.sql
+   Runs eight operational validation queries and related checks.
+
+4. 02_task12_shared_ownership.sql
+   Run only after baseline data has been loaded and backed up. Migrates to
+   effective-dated shared ownership. Validate transactions before commit.
+
+The bundled execution evidence is from Python + SQLite and is explicitly
+labelled. It is not MySQL execution evidence.

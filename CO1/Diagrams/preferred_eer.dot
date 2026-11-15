@@ -1,0 +1,23 @@
+digraph EER {
+ graph [rankdir=TB, splines=ortho, nodesep=.55, ranksep=.65, bgcolor=white, pad=.25, label="PREFERRED EER - SHARED PERSON IDENTITY AND OVERLAPPING ROLES", labelloc=t, fontsize=20, fontname=Arial];
+ node [fontname=Arial, fontsize=11, color="#164A72", penwidth=1.3, style="rounded,filled", fillcolor="#DDEBF7"];
+ edge [fontname=Arial, fontsize=10, color="#44566C"];
+ PARTY [shape=box,label="PARTY\nPartyID (PK)\nPartyKind"];
+ PERSON [shape=box,label="PERSON\nPartyID (PK/FK)\nName components / email"];
+ ORG [shape=box,label="ORGANIZATION\nPartyID (PK/FK)\nLegal name"];
+ EMP [shape=box,label="EMPLOYEE\nPersonID (PK/FK)\nEmployeeNo / Role"];
+ LENDER [shape=box,label="LENDER ROLE\nPartyID (PK/FK)\nLenderCode"];
+ CUR [shape=box,label="CURATOR\nPersonID (PK/FK)\nSpecialisation"];
+ REG [shape=box,label="REGISTRAR\nPersonID (PK/FK)\nClearance"];
+ NC [shape=box,label="NOTIFICATION_CONTACT\nContactID (PK)\nPersonID XOR OrganizationID"];
+ ISA [shape=triangle,orientation=270,label="ISA\n(total, disjoint)",width=1.1,height=.8,style=filled,fillcolor="#FFF2CC"];
+ UNION [shape=hexagon,label="UNION CATEGORY\nPerson OR Organization",style=filled,fillcolor="#E2F0D9"];
+ OVL [shape=hexagon,label="OVERLAPPING\nPERSON ROLES",style=filled,fillcolor="#FCE4D6"];
+ PARTY -> PERSON [label="specialisation",arrowhead=empty];
+ PARTY -> ORG [arrowhead=empty];
+ PERSON -> EMP [label="employee role",arrowhead=empty];
+ PERSON -> LENDER [label="same person may be lender",arrowhead=empty];
+ EMP -> ISA [arrowhead=none]; ISA -> CUR [arrowhead=empty]; ISA -> REG [arrowhead=empty];
+ PERSON -> OVL [arrowhead=none]; LENDER -> OVL [arrowhead=none]; EMP -> OVL [arrowhead=none];
+ PERSON -> UNION [arrowhead=none]; ORG -> UNION [arrowhead=none]; UNION -> NC [label="notification contact",arrowhead=empty];
+}

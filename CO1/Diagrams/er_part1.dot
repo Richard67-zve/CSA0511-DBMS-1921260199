@@ -1,0 +1,33 @@
+digraph ERPart1 {
+ graph [rankdir=TB, splines=polyline, nodesep=.45, ranksep=.65, bgcolor=white, pad=.2, label="CHEN ER - PART 1: LOAN, CUSTODY, PLACEMENT AND CONDITION EVIDENCE", labelloc=t, fontsize=17, fontname=Arial];
+ node [fontname=Arial, fontsize=10, color="#164A72", penwidth=1.2]; edge [fontname=Arial, fontsize=9, color="#44566C"];
+ LENDER [shape=box,style=filled,fillcolor="#DDEBF7",label="LENDER\nPartyID (PK/FK), LenderCode (AK)"];
+ LOAN [shape=box,style=filled,fillcolor="#DDEBF7",label="LOAN\nLoanID (PK), LoanNo (AK)\nLoanDate, ExpectedReturn, ActualReturn, Status"];
+ CURATOR [shape=box,style=filled,fillcolor="#EAF3F8",label="CURATOR\nPersonID (PK/FK)"];
+ REG [shape=box,style=filled,fillcolor="#EAF3F8",label="REGISTRAR\nPersonID (PK/FK)"];
+ OBJ [shape=box,style=filled,fillcolor="#DDEBF7",label="LOAN_OBJECT\n(LoanID, ArtifactID) (PK)\nCustodyStart, CustodyEnd, LoanLineValue"];
+ ART [shape=box,style=filled,fillcolor="#DDEBF7",label="ARTIFACT\nArtifactID (PK), AccessionNo (AK)\nTitle, EstimatedValue, OwnerPartyID (FK)"];
+ CR [shape=box,style=filled,fillcolor="#DDEBF7",label="CONDITION_REPORT\nReportID (PK), (LoanID, ArtifactID) (FK)\nReportDate, Stage, ConditionCode, Inspector, Notes"];
+ EX [shape=box,style=filled,fillcolor="#DDEBF7",label="EXHIBITION\nExhibitionID (PK), ExhibitionCode (AK)\nName, OpensOn, ClosesOn"];
+ SLOT [shape=box,style=filled,fillcolor="#EAF3F8",label="DISPLAY_SLOT (WEAK)\n(ExhibitionID, SlotNo) (PK)\nGallery, Position"];
+ PL [shape=box,style=filled,fillcolor="#EAF3F8",label="PLACEMENT\nPlacementID (PK)\nLoanID+ArtifactID (FK), ExhibitionID+SlotNo (FK)\nPlacementStart, PlacementEnd"];
+ R1 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="BORROWS"];
+ R2 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="RESPONSIBLE FOR"];
+ R3 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="PROCESSES"];
+ R4 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="CONTAINS"];
+ R5 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="IS LOANED"];
+ R6 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="HAS EVIDENCE"];
+ R7 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="OWNS SLOTS"];
+ R8 [shape=diamond,style=filled,fillcolor="#FCE4D6",label="PLACED IN"];
+ {rank=same; LENDER; CURATOR; REG;}
+ {rank=same; ART; OBJ; CR;}
+ {rank=same; EX; SLOT; PL;}
+ LENDER -> R1 [arrowhead=none,label="1"]; R1 -> LOAN [arrowhead=none,label="0..N"];
+ CURATOR -> R2 [arrowhead=none,label="1"]; R2 -> LOAN [arrowhead=none,label="0..N"];
+ REG -> R3 [arrowhead=none,label="1"]; R3 -> LOAN [arrowhead=none,label="0..N"];
+ LOAN -> R4 [arrowhead=none,label="1"]; R4 -> OBJ [arrowhead=none,label="1..N"];
+ ART -> R5 [arrowhead=none,label="1"]; R5 -> OBJ [arrowhead=none,label="0..N"];
+ OBJ -> R6 [arrowhead=none,label="1"]; R6 -> CR [arrowhead=none,label="0..N"];
+ EX -> R7 [arrowhead=none,label="1"]; R7 -> SLOT [arrowhead=none,label="1..N"];
+ OBJ -> R8 [arrowhead=none,label="1"]; R8 -> PL [arrowhead=none,label="0..N"]; SLOT -> R8 [arrowhead=none,label="1"];
+}

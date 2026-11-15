@@ -1,0 +1,34 @@
+Execution environment: Python 3.13.5 | Linux-6.18.57-x86_64-with-glibc2.41 | 2026-11-14T15:05:10+00:00
+Command: Python_Scripts/run_validation.py --sizes 100,1000,10000,100000
+Constraint tests captured from the executed SQLite validation harness
+
+REJECTED: duplicate accession identity
+  UNIQUE constraint failed: artifact.accession_no
+REJECTED: invalid loan date workflow
+  CHECK constraint failed: expected_return_date>=loan_date
+REJECTED: invalid notification union category
+  CHECK constraint failed: (person_id IS NOT NULL AND organization_id IS NULL) OR (person_id IS NULL AND organization_id IS NOT NULL)
+REJECTED: invalid employee role discriminator
+  CHECK constraint failed: role IN ('CURATOR','REGISTRAR')
+REJECTED: subtype role mismatch
+  CURATOR subtype requires employee role CURATOR
+REJECTED: invalid display slot parent
+  FOREIGN KEY constraint failed
+REJECTED: overlapping display-slot period
+  Overlapping placement in display slot
+
+Eight query result counts at 100 lenders:
+Q1_overdue_open: 26 rows
+Q2_no_condition_evidence: 50 rows
+Q3_custody_history: 2 rows
+Q4_condition_attention: 21 rows
+Q5_unit_loan_counts: 8 rows
+Q6_slot_occupancy: 120 rows
+Q7_open_loan_contacts: 6 rows
+Q8_latest_condition: 150 rows
+
+Population sizes tested:
+100 lenders -> 200 artifacts; 101 loans; 201 loan-object rows; 151 condition reports
+1,000 lenders -> 2,000 artifacts; 1,001 loans; 2,001 loan-object rows; 1,501 condition reports
+10,000 lenders -> 20,000 artifacts; 10,001 loans; 20,001 loan-object rows; 15,001 condition reports
+100,000 lenders -> 200,000 artifacts; 100,001 loans; 200,001 loan-object rows; 150,001 condition reports

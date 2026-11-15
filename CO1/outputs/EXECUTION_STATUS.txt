@@ -1,0 +1,18 @@
+EXECUTION STATUS — CO1 REPOSITORY BUNDLE
+Generated: 2026-11-14T15:05:31+00:00
+Environment: Python 3.13.5 on Linux-6.18.57-x86_64-with-glibc2.41
+
+EXECUTED IN THIS BUILD ENVIRONMENT (Python + SQLite portable validation harness):
+- Python_Scripts/run_validation.py --sizes 100,1000,10000,100000 : SUCCESS
+- Python_Scripts/task12_ownership_demo.py : SUCCESS
+- Python_Scripts/flat_file_anomalies.py : SUCCESS
+- The portable harness produced eight operational query result sets, row-count summaries, timing summaries, query-plan details and constraint rejection messages.
+
+NOT EXECUTED HERE:
+- SQL/01_schema_mysql.sql, SQL/02_task12_shared_ownership.sql and SQL/03_validation_queries.sql were not run against a MySQL Server.
+- No MySQL-native execution screenshot, query plan, MySQL timing or MySQL error message is claimed in this bundle.
+
+IMPORTANT:
+- The included output captures are image renderings of real command stdout and are accompanied by full text logs.
+- They are not screenshots of a MySQL Command Line Client window.
+- All SQLite evidence is explicitly identified as SQLite/portable harness evidence. Do not label it as MySQL execution.

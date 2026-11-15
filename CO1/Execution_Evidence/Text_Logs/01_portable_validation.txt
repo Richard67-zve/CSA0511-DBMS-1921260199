@@ -1,0 +1,16 @@
+Execution environment: Python 3.13.5 | Linux-6.18.57-x86_64-with-glibc2.41 | 2026-11-14T15:05:10+00:00
+Command: /opt/pyvenv/bin/python Python_Scripts/run_validation.py --sizes 100,1000,10000,100000
+Exit code: 0
+
+--- STDOUT ---
+Validating workload with 100 lenders ...
+Validating workload with 1,000 lenders ...
+Validating workload with 10,000 lenders ...
+Validating workload with 100,000 lenders ...
+Wrote /mnt/data/dbms_co1_final_build/CO1/outputs/validation_results.json
+    100 lenders |     200 artifacts |     101 loans | Q1 0.0072 ms | Q2 0.0833 ms
+  1,000 lenders |   2,000 artifacts |   1,001 loans | Q1 0.0299 ms | Q2 1.1261 ms
+ 10,000 lenders |  20,000 artifacts |  10,001 loans | Q1 0.2534 ms | Q2 13.0322 ms
+100,000 lenders | 200,000 artifacts | 100,001 loans | Q1 2.7068 ms | Q2 157.0599 ms
+
+--- STDERR ---

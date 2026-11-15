@@ -1,0 +1,1390 @@
+[
+  {
+    "population_lenders": 100,
+    "counts": {
+      "party": 150,
+      "person": 140,
+      "lender": 100,
+      "employee": 40,
+      "curator": 35,
+      "registrar": 5,
+      "artifact": 200,
+      "loan": 101,
+      "loan_object": 201,
+      "condition_report": 151,
+      "placement": 100
+    },
+    "query_results": {
+      "Q1_overdue_open": {
+        "row_count": 26,
+        "sample_rows": [
+          [
+            101,
+            "LN-RET-000001",
+            41,
+            "2026-07-01"
+          ],
+          [
+            16,
+            "LN-000016",
+            56,
+            "2026-10-27"
+          ],
+          [
+            36,
+            "LN-000036",
+            76,
+            "2026-10-27"
+          ],
+          [
+            56,
+            "LN-000056",
+            96,
+            "2026-10-27"
+          ],
+          [
+            76,
+            "LN-000076",
+            116,
+            "2026-10-27"
+          ]
+        ]
+      },
+      "Q2_no_condition_evidence": {
+        "row_count": 50,
+        "sample_rows": [
+          [
+            4,
+            "MM-000004",
+            "Museum artifact 000004"
+          ],
+          [
+            8,
+            "MM-000008",
+            "Museum artifact 000008"
+          ],
+          [
+            12,
+            "MM-000012",
+            "Museum artifact 000012"
+          ],
+          [
+            16,
+            "MM-000016",
+            "Museum artifact 000016"
+          ],
+          [
+            20,
+            "MM-000020",
+            "Museum artifact 000020"
+          ]
+        ]
+      },
+      "Q3_custody_history": {
+        "row_count": 2,
+        "sample_rows": [
+          [
+            "MM-000003",
+            "LN-000002",
+            "CLOSED",
+            "2026-01-15",
+            "2026-03-03"
+          ],
+          [
+            "MM-000003",
+            "LN-RET-000001",
+            "ACTIVE",
+            "2026-06-01",
+            null
+          ]
+        ]
+      },
+      "Q4_condition_attention": {
+        "row_count": 21,
+        "sample_rows": [
+          [
+            127,
+            "MM-000169",
+            "2026-10-24",
+            "POOR"
+          ],
+          [
+            128,
+            "MM-000170",
+            "2026-10-24",
+            "DAMAGED"
+          ],
+          [
+            59,
+            "MM-000078",
+            "2026-10-02",
+            "POOR"
+          ],
+          [
+            115,
+            "MM-000153",
+            "2026-08-29",
+            "DAMAGED"
+          ],
+          [
+            49,
+            "MM-000065",
+            "2026-08-21",
+            "POOR"
+          ]
+        ]
+      },
+      "Q5_unit_loan_counts": {
+        "row_count": 8,
+        "sample_rows": [
+          [
+            "Unit 01",
+            25,
+            25
+          ],
+          [
+            "Unit 02",
+            25,
+            25
+          ],
+          [
+            "Unit 03",
+            26,
+            25
+          ],
+          [
+            "Unit 04",
+            25,
+            25
+          ],
+          [
+            "Unit 05",
+            25,
+            25
+          ]
+        ]
+      },
+      "Q6_slot_occupancy": {
+        "row_count": 120,
+        "sample_rows": [
+          [
+            "EX-001",
+            1,
+            2,
+            "2026-01-01",
+            "2026-01-07"
+          ],
+          [
+            "EX-001",
+            2,
+            26,
+            "2026-01-01",
+            "2026-01-07"
+          ],
+          [
+            "EX-001",
+            3,
+            50,
+            "2026-01-01",
+            "2026-01-07"
+          ],
+          [
+            "EX-001",
+            4,
+            74,
+            "2026-01-01",
+            "2026-01-07"
+          ],
+          [
+            "EX-001",
+            5,
+            98,
+            "2026-01-01",
+            "2026-01-07"
+          ]
+        ]
+      },
+      "Q7_open_loan_contacts": {
+        "row_count": 6,
+        "sample_rows": [
+          [
+            "LN-000001",
+            "Organization notification desk",
+            "loans@partner.example.test",
+            "2026-11-19"
+          ],
+          [
+            "LN-000020",
+            "Lender contact 20",
+            "p60@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000040",
+            "Lender contact 40",
+            "p80@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000060",
+            "Lender contact 60",
+            "p100@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000080",
+            "Lender contact 80",
+            "p120@example.test",
+            "2026-11-12"
+          ]
+        ]
+      },
+      "Q8_latest_condition": {
+        "row_count": 150,
+        "sample_rows": [
+          [
+            "MM-000001",
+            "2026-01-09",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000002",
+            "2026-01-09",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000003",
+            "2026-06-01",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000005",
+            "2026-01-23",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000006",
+            "2026-01-23",
+            "RECEIPT",
+            "FAIR"
+          ]
+        ]
+      }
+    },
+    "median_query_ms": {
+      "Q1_overdue_open_median_ms": 0.0072,
+      "Q2_no_condition_evidence_median_ms": 0.0833,
+      "Q3_custody_history_median_ms": 0.0052,
+      "Q4_condition_attention_median_ms": 0.0185,
+      "Q5_unit_loan_counts_median_ms": 0.095,
+      "Q6_slot_occupancy_median_ms": 0.0684,
+      "Q7_open_loan_contacts_median_ms": 0.0075,
+      "Q8_latest_condition_median_ms": 0.1541
+    },
+    "explicit_join_counts": {
+      "Q1_overdue_open": 0,
+      "Q2_no_condition_evidence": 2,
+      "Q3_custody_history": 2,
+      "Q4_condition_attention": 1,
+      "Q5_unit_loan_counts": 2,
+      "Q6_slot_occupancy": 2,
+      "Q7_open_loan_contacts": 2,
+      "Q8_latest_condition": 1
+    },
+    "constraint_tests": [
+      {
+        "test": "duplicate accession identity",
+        "result": "REJECTED",
+        "message": "UNIQUE constraint failed: artifact.accession_no"
+      },
+      {
+        "test": "invalid loan date workflow",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: expected_return_date>=loan_date"
+      },
+      {
+        "test": "invalid notification union category",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: (person_id IS NOT NULL AND organization_id IS NULL) OR (person_id IS NULL AND organization_id IS NOT NULL)"
+      },
+      {
+        "test": "invalid employee role discriminator",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: role IN ('CURATOR','REGISTRAR')"
+      },
+      {
+        "test": "subtype role mismatch",
+        "result": "REJECTED",
+        "message": "CURATOR subtype requires employee role CURATOR"
+      },
+      {
+        "test": "invalid display slot parent",
+        "result": "REJECTED",
+        "message": "FOREIGN KEY constraint failed"
+      },
+      {
+        "test": "overlapping display-slot period",
+        "result": "REJECTED",
+        "message": "Overlapping placement in display slot"
+      }
+    ],
+    "q1_query_plan": [
+      [
+        5,
+        0,
+        0,
+        "SEARCH loan USING INDEX ix_loan_due (loan_status=? AND actual_return_date=? AND expected_return_date<?)"
+      ]
+    ],
+    "flat_file_anomalies": {
+      "insertion_anomaly": "A lender with no loan has no row in a flat loan file, so the lender cannot be recorded independently.",
+      "update_anomaly": "The lender name and artifact description are repeated on every line; changing one copy leaves inconsistent values.",
+      "deletion_anomaly": "Deleting the only loan line for a lender also removes the only copy of that lender's details."
+    }
+  },
+  {
+    "population_lenders": 1000,
+    "counts": {
+      "party": 1050,
+      "person": 1040,
+      "lender": 1000,
+      "employee": 40,
+      "curator": 35,
+      "registrar": 5,
+      "artifact": 2000,
+      "loan": 1001,
+      "loan_object": 2001,
+      "condition_report": 1501,
+      "placement": 1000
+    },
+    "query_results": {
+      "Q1_overdue_open": {
+        "row_count": 251,
+        "sample_rows": [
+          [
+            1001,
+            "LN-RET-000001",
+            41,
+            "2026-07-01"
+          ],
+          [
+            16,
+            "LN-000016",
+            56,
+            "2026-10-27"
+          ],
+          [
+            36,
+            "LN-000036",
+            76,
+            "2026-10-27"
+          ],
+          [
+            56,
+            "LN-000056",
+            96,
+            "2026-10-27"
+          ],
+          [
+            76,
+            "LN-000076",
+            116,
+            "2026-10-27"
+          ]
+        ]
+      },
+      "Q2_no_condition_evidence": {
+        "row_count": 500,
+        "sample_rows": [
+          [
+            4,
+            "MM-000004",
+            "Museum artifact 000004"
+          ],
+          [
+            8,
+            "MM-000008",
+            "Museum artifact 000008"
+          ],
+          [
+            12,
+            "MM-000012",
+            "Museum artifact 000012"
+          ],
+          [
+            16,
+            "MM-000016",
+            "Museum artifact 000016"
+          ],
+          [
+            20,
+            "MM-000020",
+            "Museum artifact 000020"
+          ]
+        ]
+      },
+      "Q3_custody_history": {
+        "row_count": 2,
+        "sample_rows": [
+          [
+            "MM-000003",
+            "LN-000002",
+            "CLOSED",
+            "2026-01-15",
+            "2026-03-03"
+          ],
+          [
+            "MM-000003",
+            "LN-RET-000001",
+            "ACTIVE",
+            "2026-06-01",
+            null
+          ]
+        ]
+      },
+      "Q4_condition_attention": {
+        "row_count": 196,
+        "sample_rows": [
+          [
+            771,
+            "MM-001027",
+            "2026-10-27",
+            "POOR"
+          ],
+          [
+            192,
+            "MM-000255",
+            "2026-10-25",
+            "DAMAGED"
+          ],
+          [
+            127,
+            "MM-000169",
+            "2026-10-24",
+            "POOR"
+          ],
+          [
+            128,
+            "MM-000170",
+            "2026-10-24",
+            "DAMAGED"
+          ],
+          [
+            449,
+            "MM-000598",
+            "2026-10-22",
+            "POOR"
+          ]
+        ]
+      },
+      "Q5_unit_loan_counts": {
+        "row_count": 8,
+        "sample_rows": [
+          [
+            "Unit 01",
+            250,
+            250
+          ],
+          [
+            "Unit 02",
+            250,
+            250
+          ],
+          [
+            "Unit 03",
+            251,
+            250
+          ],
+          [
+            "Unit 04",
+            250,
+            250
+          ],
+          [
+            "Unit 05",
+            250,
+            250
+          ]
+        ]
+      },
+      "Q6_slot_occupancy": {
+        "row_count": 1000,
+        "sample_rows": [
+          [
+            "EX-001",
+            1,
+            2,
+            "2026-01-01",
+            "2026-01-07"
+          ],
+          [
+            "EX-001",
+            1,
+            242,
+            "2026-01-08",
+            "2026-01-14"
+          ],
+          [
+            "EX-001",
+            1,
+            482,
+            "2026-01-15",
+            "2026-01-21"
+          ],
+          [
+            "EX-001",
+            1,
+            722,
+            "2026-01-22",
+            "2026-01-28"
+          ],
+          [
+            "EX-001",
+            1,
+            962,
+            "2026-01-29",
+            "2026-02-04"
+          ]
+        ]
+      },
+      "Q7_open_loan_contacts": {
+        "row_count": 51,
+        "sample_rows": [
+          [
+            "LN-000001",
+            "Organization notification desk",
+            "loans@partner.example.test",
+            "2026-11-19"
+          ],
+          [
+            "LN-000020",
+            "Lender contact 20",
+            "p60@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000040",
+            "Lender contact 40",
+            "p80@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000060",
+            "Lender contact 60",
+            "p100@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000080",
+            "Lender contact 80",
+            "p120@example.test",
+            "2026-11-12"
+          ]
+        ]
+      },
+      "Q8_latest_condition": {
+        "row_count": 1500,
+        "sample_rows": [
+          [
+            "MM-000001",
+            "2026-01-09",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000002",
+            "2026-01-09",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000003",
+            "2026-06-01",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000005",
+            "2026-01-23",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000006",
+            "2026-01-23",
+            "RECEIPT",
+            "FAIR"
+          ]
+        ]
+      }
+    },
+    "median_query_ms": {
+      "Q1_overdue_open_median_ms": 0.0299,
+      "Q2_no_condition_evidence_median_ms": 1.1261,
+      "Q3_custody_history_median_ms": 0.0055,
+      "Q4_condition_attention_median_ms": 0.1371,
+      "Q5_unit_loan_counts_median_ms": 1.3136,
+      "Q6_slot_occupancy_median_ms": 0.7832,
+      "Q7_open_loan_contacts_median_ms": 0.0358,
+      "Q8_latest_condition_median_ms": 1.6663
+    },
+    "explicit_join_counts": {
+      "Q1_overdue_open": 0,
+      "Q2_no_condition_evidence": 2,
+      "Q3_custody_history": 2,
+      "Q4_condition_attention": 1,
+      "Q5_unit_loan_counts": 2,
+      "Q6_slot_occupancy": 2,
+      "Q7_open_loan_contacts": 2,
+      "Q8_latest_condition": 1
+    },
+    "constraint_tests": [
+      {
+        "test": "duplicate accession identity",
+        "result": "REJECTED",
+        "message": "UNIQUE constraint failed: artifact.accession_no"
+      },
+      {
+        "test": "invalid loan date workflow",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: expected_return_date>=loan_date"
+      },
+      {
+        "test": "invalid notification union category",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: (person_id IS NOT NULL AND organization_id IS NULL) OR (person_id IS NULL AND organization_id IS NOT NULL)"
+      },
+      {
+        "test": "invalid employee role discriminator",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: role IN ('CURATOR','REGISTRAR')"
+      },
+      {
+        "test": "subtype role mismatch",
+        "result": "REJECTED",
+        "message": "CURATOR subtype requires employee role CURATOR"
+      },
+      {
+        "test": "invalid display slot parent",
+        "result": "REJECTED",
+        "message": "FOREIGN KEY constraint failed"
+      },
+      {
+        "test": "overlapping display-slot period",
+        "result": "REJECTED",
+        "message": "Overlapping placement in display slot"
+      }
+    ],
+    "q1_query_plan": [
+      [
+        5,
+        0,
+        0,
+        "SEARCH loan USING INDEX ix_loan_due (loan_status=? AND actual_return_date=? AND expected_return_date<?)"
+      ]
+    ],
+    "flat_file_anomalies": {
+      "insertion_anomaly": "A lender with no loan has no row in a flat loan file, so the lender cannot be recorded independently.",
+      "update_anomaly": "The lender name and artifact description are repeated on every line; changing one copy leaves inconsistent values.",
+      "deletion_anomaly": "Deleting the only loan line for a lender also removes the only copy of that lender's details."
+    }
+  },
+  {
+    "population_lenders": 10000,
+    "counts": {
+      "party": 10050,
+      "person": 10040,
+      "lender": 10000,
+      "employee": 40,
+      "curator": 35,
+      "registrar": 5,
+      "artifact": 20000,
+      "loan": 10001,
+      "loan_object": 20001,
+      "condition_report": 15001,
+      "placement": 10000
+    },
+    "query_results": {
+      "Q1_overdue_open": {
+        "row_count": 2501,
+        "sample_rows": [
+          [
+            10001,
+            "LN-RET-000001",
+            41,
+            "2026-07-01"
+          ],
+          [
+            16,
+            "LN-000016",
+            56,
+            "2026-10-27"
+          ],
+          [
+            36,
+            "LN-000036",
+            76,
+            "2026-10-27"
+          ],
+          [
+            56,
+            "LN-000056",
+            96,
+            "2026-10-27"
+          ],
+          [
+            76,
+            "LN-000076",
+            116,
+            "2026-10-27"
+          ]
+        ]
+      },
+      "Q2_no_condition_evidence": {
+        "row_count": 5000,
+        "sample_rows": [
+          [
+            4,
+            "MM-000004",
+            "Museum artifact 000004"
+          ],
+          [
+            8,
+            "MM-000008",
+            "Museum artifact 000008"
+          ],
+          [
+            12,
+            "MM-000012",
+            "Museum artifact 000012"
+          ],
+          [
+            16,
+            "MM-000016",
+            "Museum artifact 000016"
+          ],
+          [
+            20,
+            "MM-000020",
+            "Museum artifact 000020"
+          ]
+        ]
+      },
+      "Q3_custody_history": {
+        "row_count": 2,
+        "sample_rows": [
+          [
+            "MM-000003",
+            "LN-000002",
+            "CLOSED",
+            "2026-01-15",
+            "2026-03-03"
+          ],
+          [
+            "MM-000003",
+            "LN-RET-000001",
+            "ACTIVE",
+            "2026-06-01",
+            null
+          ]
+        ]
+      },
+      "Q4_condition_attention": {
+        "row_count": 1968,
+        "sample_rows": [
+          [
+            1736,
+            "MM-002314",
+            "2026-10-28",
+            "POOR"
+          ],
+          [
+            3086,
+            "MM-004114",
+            "2026-10-28",
+            "DAMAGED"
+          ],
+          [
+            4885,
+            "MM-006513",
+            "2026-10-28",
+            "POOR"
+          ],
+          [
+            6235,
+            "MM-008313",
+            "2026-10-28",
+            "DAMAGED"
+          ],
+          [
+            7586,
+            "MM-010114",
+            "2026-10-28",
+            "POOR"
+          ]
+        ]
+      },
+      "Q5_unit_loan_counts": {
+        "row_count": 8,
+        "sample_rows": [
+          [
+            "Unit 01",
+            2500,
+            2500
+          ],
+          [
+            "Unit 02",
+            2500,
+            2500
+          ],
+          [
+            "Unit 03",
+            2501,
+            2500
+          ],
+          [
+            "Unit 04",
+            2500,
+            2500
+          ],
+          [
+            "Unit 05",
+            2500,
+            2500
+          ]
+        ]
+      },
+      "Q6_slot_occupancy": {
+        "row_count": 10000,
+        "sample_rows": [
+          [
+            "EX-001",
+            1,
+            2,
+            "2026-01-01",
+            "2026-01-07"
+          ],
+          [
+            "EX-001",
+            1,
+            242,
+            "2026-01-08",
+            "2026-01-14"
+          ],
+          [
+            "EX-001",
+            1,
+            482,
+            "2026-01-15",
+            "2026-01-21"
+          ],
+          [
+            "EX-001",
+            1,
+            722,
+            "2026-01-22",
+            "2026-01-28"
+          ],
+          [
+            "EX-001",
+            1,
+            962,
+            "2026-01-29",
+            "2026-02-04"
+          ]
+        ]
+      },
+      "Q7_open_loan_contacts": {
+        "row_count": 501,
+        "sample_rows": [
+          [
+            "LN-000001",
+            "Organization notification desk",
+            "loans@partner.example.test",
+            "2026-11-19"
+          ],
+          [
+            "LN-000020",
+            "Lender contact 20",
+            "p60@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000040",
+            "Lender contact 40",
+            "p80@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000060",
+            "Lender contact 60",
+            "p100@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000080",
+            "Lender contact 80",
+            "p120@example.test",
+            "2026-11-12"
+          ]
+        ]
+      },
+      "Q8_latest_condition": {
+        "row_count": 15000,
+        "sample_rows": [
+          [
+            "MM-000001",
+            "2026-01-09",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000002",
+            "2026-01-09",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000003",
+            "2026-06-01",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000005",
+            "2026-01-23",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000006",
+            "2026-01-23",
+            "RECEIPT",
+            "FAIR"
+          ]
+        ]
+      }
+    },
+    "median_query_ms": {
+      "Q1_overdue_open_median_ms": 0.2534,
+      "Q2_no_condition_evidence_median_ms": 13.0322,
+      "Q3_custody_history_median_ms": 0.0055,
+      "Q4_condition_attention_median_ms": 2.7762,
+      "Q5_unit_loan_counts_median_ms": 12.3943,
+      "Q6_slot_occupancy_median_ms": 9.8956,
+      "Q7_open_loan_contacts_median_ms": 0.4349,
+      "Q8_latest_condition_median_ms": 16.0055
+    },
+    "explicit_join_counts": {
+      "Q1_overdue_open": 0,
+      "Q2_no_condition_evidence": 2,
+      "Q3_custody_history": 2,
+      "Q4_condition_attention": 1,
+      "Q5_unit_loan_counts": 2,
+      "Q6_slot_occupancy": 2,
+      "Q7_open_loan_contacts": 2,
+      "Q8_latest_condition": 1
+    },
+    "constraint_tests": [
+      {
+        "test": "duplicate accession identity",
+        "result": "REJECTED",
+        "message": "UNIQUE constraint failed: artifact.accession_no"
+      },
+      {
+        "test": "invalid loan date workflow",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: expected_return_date>=loan_date"
+      },
+      {
+        "test": "invalid notification union category",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: (person_id IS NOT NULL AND organization_id IS NULL) OR (person_id IS NULL AND organization_id IS NOT NULL)"
+      },
+      {
+        "test": "invalid employee role discriminator",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: role IN ('CURATOR','REGISTRAR')"
+      },
+      {
+        "test": "subtype role mismatch",
+        "result": "REJECTED",
+        "message": "CURATOR subtype requires employee role CURATOR"
+      },
+      {
+        "test": "invalid display slot parent",
+        "result": "REJECTED",
+        "message": "FOREIGN KEY constraint failed"
+      },
+      {
+        "test": "overlapping display-slot period",
+        "result": "REJECTED",
+        "message": "Overlapping placement in display slot"
+      }
+    ],
+    "q1_query_plan": [
+      [
+        5,
+        0,
+        0,
+        "SEARCH loan USING INDEX ix_loan_due (loan_status=? AND actual_return_date=? AND expected_return_date<?)"
+      ]
+    ],
+    "flat_file_anomalies": {
+      "insertion_anomaly": "A lender with no loan has no row in a flat loan file, so the lender cannot be recorded independently.",
+      "update_anomaly": "The lender name and artifact description are repeated on every line; changing one copy leaves inconsistent values.",
+      "deletion_anomaly": "Deleting the only loan line for a lender also removes the only copy of that lender's details."
+    }
+  },
+  {
+    "population_lenders": 100000,
+    "counts": {
+      "party": 100050,
+      "person": 100040,
+      "lender": 100000,
+      "employee": 40,
+      "curator": 35,
+      "registrar": 5,
+      "artifact": 200000,
+      "loan": 100001,
+      "loan_object": 200001,
+      "condition_report": 150001,
+      "placement": 100000
+    },
+    "query_results": {
+      "Q1_overdue_open": {
+        "row_count": 25001,
+        "sample_rows": [
+          [
+            100001,
+            "LN-RET-000001",
+            41,
+            "2026-07-01"
+          ],
+          [
+            16,
+            "LN-000016",
+            56,
+            "2026-10-27"
+          ],
+          [
+            36,
+            "LN-000036",
+            76,
+            "2026-10-27"
+          ],
+          [
+            56,
+            "LN-000056",
+            96,
+            "2026-10-27"
+          ],
+          [
+            76,
+            "LN-000076",
+            116,
+            "2026-10-27"
+          ]
+        ]
+      },
+      "Q2_no_condition_evidence": {
+        "row_count": 50000,
+        "sample_rows": [
+          [
+            4,
+            "MM-000004",
+            "Museum artifact 000004"
+          ],
+          [
+            8,
+            "MM-000008",
+            "Museum artifact 000008"
+          ],
+          [
+            12,
+            "MM-000012",
+            "Museum artifact 000012"
+          ],
+          [
+            16,
+            "MM-000016",
+            "Museum artifact 000016"
+          ],
+          [
+            20,
+            "MM-000020",
+            "Museum artifact 000020"
+          ]
+        ]
+      },
+      "Q3_custody_history": {
+        "row_count": 2,
+        "sample_rows": [
+          [
+            "MM-000003",
+            "LN-000002",
+            "CLOSED",
+            "2026-01-15",
+            "2026-03-03"
+          ],
+          [
+            "MM-000003",
+            "LN-RET-000001",
+            "ACTIVE",
+            "2026-06-01",
+            null
+          ]
+        ]
+      },
+      "Q4_condition_attention": {
+        "row_count": 19683,
+        "sample_rows": [
+          [
+            1736,
+            "MM-002314",
+            "2026-10-28",
+            "POOR"
+          ],
+          [
+            3086,
+            "MM-004114",
+            "2026-10-28",
+            "DAMAGED"
+          ],
+          [
+            4885,
+            "MM-006513",
+            "2026-10-28",
+            "POOR"
+          ],
+          [
+            6235,
+            "MM-008313",
+            "2026-10-28",
+            "DAMAGED"
+          ],
+          [
+            7586,
+            "MM-010114",
+            "2026-10-28",
+            "POOR"
+          ]
+        ]
+      },
+      "Q5_unit_loan_counts": {
+        "row_count": 8,
+        "sample_rows": [
+          [
+            "Unit 01",
+            25000,
+            25000
+          ],
+          [
+            "Unit 02",
+            25000,
+            25000
+          ],
+          [
+            "Unit 03",
+            25001,
+            25000
+          ],
+          [
+            "Unit 04",
+            25000,
+            25000
+          ],
+          [
+            "Unit 05",
+            25000,
+            25000
+          ]
+        ]
+      },
+      "Q6_slot_occupancy": {
+        "row_count": 100000,
+        "sample_rows": [
+          [
+            "EX-001",
+            1,
+            2,
+            "2026-01-01",
+            "2026-01-07"
+          ],
+          [
+            "EX-001",
+            1,
+            242,
+            "2026-01-08",
+            "2026-01-14"
+          ],
+          [
+            "EX-001",
+            1,
+            482,
+            "2026-01-15",
+            "2026-01-21"
+          ],
+          [
+            "EX-001",
+            1,
+            722,
+            "2026-01-22",
+            "2026-01-28"
+          ],
+          [
+            "EX-001",
+            1,
+            962,
+            "2026-01-29",
+            "2026-02-04"
+          ]
+        ]
+      },
+      "Q7_open_loan_contacts": {
+        "row_count": 5001,
+        "sample_rows": [
+          [
+            "LN-000001",
+            "Organization notification desk",
+            "loans@partner.example.test",
+            "2026-11-19"
+          ],
+          [
+            "LN-000020",
+            "Lender contact 20",
+            "p60@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000040",
+            "Lender contact 40",
+            "p80@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000060",
+            "Lender contact 60",
+            "p100@example.test",
+            "2026-11-12"
+          ],
+          [
+            "LN-000080",
+            "Lender contact 80",
+            "p120@example.test",
+            "2026-11-12"
+          ]
+        ]
+      },
+      "Q8_latest_condition": {
+        "row_count": 150000,
+        "sample_rows": [
+          [
+            "MM-000001",
+            "2026-01-09",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000002",
+            "2026-01-09",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000003",
+            "2026-06-01",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000005",
+            "2026-01-23",
+            "RECEIPT",
+            "GOOD"
+          ],
+          [
+            "MM-000006",
+            "2026-01-23",
+            "RECEIPT",
+            "FAIR"
+          ]
+        ]
+      }
+    },
+    "median_query_ms": {
+      "Q1_overdue_open_median_ms": 2.7068,
+      "Q2_no_condition_evidence_median_ms": 157.0599,
+      "Q3_custody_history_median_ms": 0.0061,
+      "Q4_condition_attention_median_ms": 22.4302,
+      "Q5_unit_loan_counts_median_ms": 152.1073,
+      "Q6_slot_occupancy_median_ms": 108.9713,
+      "Q7_open_loan_contacts_median_ms": 6.5379,
+      "Q8_latest_condition_median_ms": 167.3734
+    },
+    "explicit_join_counts": {
+      "Q1_overdue_open": 0,
+      "Q2_no_condition_evidence": 2,
+      "Q3_custody_history": 2,
+      "Q4_condition_attention": 1,
+      "Q5_unit_loan_counts": 2,
+      "Q6_slot_occupancy": 2,
+      "Q7_open_loan_contacts": 2,
+      "Q8_latest_condition": 1
+    },
+    "constraint_tests": [
+      {
+        "test": "duplicate accession identity",
+        "result": "REJECTED",
+        "message": "UNIQUE constraint failed: artifact.accession_no"
+      },
+      {
+        "test": "invalid loan date workflow",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: expected_return_date>=loan_date"
+      },
+      {
+        "test": "invalid notification union category",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: (person_id IS NOT NULL AND organization_id IS NULL) OR (person_id IS NULL AND organization_id IS NOT NULL)"
+      },
+      {
+        "test": "invalid employee role discriminator",
+        "result": "REJECTED",
+        "message": "CHECK constraint failed: role IN ('CURATOR','REGISTRAR')"
+      },
+      {
+        "test": "subtype role mismatch",
+        "result": "REJECTED",
+        "message": "CURATOR subtype requires employee role CURATOR"
+      },
+      {
+        "test": "invalid display slot parent",
+        "result": "REJECTED",
+        "message": "FOREIGN KEY constraint failed"
+      },
+      {
+        "test": "overlapping display-slot period",
+        "result": "REJECTED",
+        "message": "Overlapping placement in display slot"
+      }
+    ],
+    "q1_query_plan": [
+      [
+        5,
+        0,
+        0,
+        "SEARCH loan USING INDEX ix_loan_due (loan_status=? AND actual_return_date=? AND expected_return_date<?)"
+      ]
+    ],
+    "flat_file_anomalies": {
+      "insertion_anomaly": "A lender with no loan has no row in a flat loan file, so the lender cannot be recorded independently.",
+      "update_anomaly": "The lender name and artifact description are repeated on every line; changing one copy leaves inconsistent values.",
+      "deletion_anomaly": "Deleting the only loan line for a lender also removes the only copy of that lender's details."
+    }
+  }
+]
