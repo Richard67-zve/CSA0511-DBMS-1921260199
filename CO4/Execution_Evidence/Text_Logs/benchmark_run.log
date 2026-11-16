@@ -1,0 +1,24 @@
+Benchmarking 1,000 records...
+Benchmarking 10,000 records...
+Benchmarking 100,000 records...
+Benchmarking 1,000,000 records...
+
+SUMMARY
+    1,000 | Heap file                             | blocks=     50 | eq_reads=26.00 | range_reads=50.00 | build=0.0002s
+    1,000 | Sorted sequential + sparse index      | blocks=     50 | eq_reads=2.00 | range_reads=12.40 | build=0.0001s
+    1,000 | Static hash file (separate overflow pages) | blocks=     63 | eq_reads=1.00 | range_reads=63.00 | build=0.0001s
+    1,000 | Clustered B+ tree                     | blocks=     51 | eq_reads=2.00 | range_reads=11.60 | build=0.0000s
+   10,000 | Heap file                             | blocks=    500 | eq_reads=251.00 | range_reads=500.00 | build=0.0016s
+   10,000 | Sorted sequential + sparse index      | blocks=    500 | eq_reads=3.00 | range_reads=103.40 | build=0.0002s
+   10,000 | Static hash file (separate overflow pages) | blocks=    625 | eq_reads=1.00 | range_reads=625.00 | build=0.0007s
+   10,000 | Clustered B+ tree                     | blocks=    503 | eq_reads=3.00 | range_reads=102.60 | build=0.0002s
+  100,000 | Heap file                             | blocks=  5,000 | eq_reads=2501.00 | range_reads=5000.00 | build=0.0187s
+  100,000 | Sorted sequential + sparse index      | blocks=  5,000 | eq_reads=3.00 | range_reads=103.80 | build=0.0036s
+  100,000 | Static hash file (separate overflow pages) | blocks=  6,250 | eq_reads=1.00 | range_reads=6250.00 | build=0.0097s
+  100,000 | Clustered B+ tree                     | blocks=  5,019 | eq_reads=3.00 | range_reads=102.80 | build=0.0453s
+1,000,000 | Heap file                             | blocks= 50,000 | eq_reads=25001.00 | range_reads=50000.00 | build=0.2124s
+1,000,000 | Sorted sequential + sparse index      | blocks= 50,000 | eq_reads=3.00 | range_reads=103.80 | build=0.0549s
+1,000,000 | Static hash file (separate overflow pages) | blocks= 62,500 | eq_reads=1.00 | range_reads=62500.00 | build=0.0781s
+1,000,000 | Clustered B+ tree                     | blocks= 50,172 | eq_reads=3.00 | range_reads=102.80 | build=0.0462s
+
+Wrote Results/benchmark.csv

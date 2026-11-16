@@ -1,0 +1,5 @@
+PASS | Heap file | equality, missing key, range, insert, delete, duplicate guard, empty/last-key boundaries
+PASS | Sorted sequential + sparse index | equality, missing key, range, insert, delete, duplicate guard, empty/last-key boundaries
+PASS | Static hash file (separate overflow pages) | equality, missing key, range, insert, delete, duplicate guard, empty/last-key boundaries
+PASS | Clustered B+ tree | equality, missing key, range, insert, delete, duplicate guard, empty/last-key boundaries
+NOTE | Heap file does not enforce TxnID uniqueness internally; validate uniqueness at the transaction-ingest boundary.

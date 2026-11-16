@@ -1,0 +1,32 @@
+STATIC HASH: m=5, bucket capacity=2, h(k)=k mod 5
+Bucket 0: []
+Bucket 1: []
+Bucket 2: [12, 7, 22, 17] -> overflow
+Bucket 3: []
+Bucket 4: [9, 14, 19, 24, 29, 34] -> overflow
+
+EXTENDIBLE HASH (first 8 insertions)
+1 [] gd= 1 {'0': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '1': {'bucket_id': 1, 'local_depth': 1, 'keys': [1]}}
+3 [] gd= 1 {'0': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '1': {'bucket_id': 1, 'local_depth': 1, 'keys': [1, 3]}}
+5 ['directory doubled: global depth 2', 'split bucket 1; local depth 2; new bucket 2'] gd= 2 {'0': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '1': {'bucket_id': 1, 'local_depth': 2, 'keys': [1, 5]}, '2': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '3': {'bucket_id': 2, 'local_depth': 2, 'keys': [3]}}
+7 [] gd= 2 {'0': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '1': {'bucket_id': 1, 'local_depth': 2, 'keys': [1, 5]}, '2': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '3': {'bucket_id': 2, 'local_depth': 2, 'keys': [3, 7]}}
+9 ['directory doubled: global depth 3', 'split bucket 1; local depth 3; new bucket 3'] gd= 3 {'0': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '1': {'bucket_id': 1, 'local_depth': 3, 'keys': [1, 9]}, '2': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '3': {'bucket_id': 2, 'local_depth': 2, 'keys': [3, 7]}, '4': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '5': {'bucket_id': 3, 'local_depth': 3, 'keys': [5]}, '6': {'bucket_id': 0, 'local_depth': 1, 'keys': []}, '7': {'bucket_id': 2, 'local_depth': 2, 'keys': [3, 7]}}
+2 [] gd= 3 {'0': {'bucket_id': 0, 'local_depth': 1, 'keys': [2]}, '1': {'bucket_id': 1, 'local_depth': 3, 'keys': [1, 9]}, '2': {'bucket_id': 0, 'local_depth': 1, 'keys': [2]}, '3': {'bucket_id': 2, 'local_depth': 2, 'keys': [3, 7]}, '4': {'bucket_id': 0, 'local_depth': 1, 'keys': [2]}, '5': {'bucket_id': 3, 'local_depth': 3, 'keys': [5]}, '6': {'bucket_id': 0, 'local_depth': 1, 'keys': [2]}, '7': {'bucket_id': 2, 'local_depth': 2, 'keys': [3, 7]}}
+4 [] gd= 3 {'0': {'bucket_id': 0, 'local_depth': 1, 'keys': [2, 4]}, '1': {'bucket_id': 1, 'local_depth': 3, 'keys': [1, 9]}, '2': {'bucket_id': 0, 'local_depth': 1, 'keys': [2, 4]}, '3': {'bucket_id': 2, 'local_depth': 2, 'keys': [3, 7]}, '4': {'bucket_id': 0, 'local_depth': 1, 'keys': [2, 4]}, '5': {'bucket_id': 3, 'local_depth': 3, 'keys': [5]}, '6': {'bucket_id': 0, 'local_depth': 1, 'keys': [2, 4]}, '7': {'bucket_id': 2, 'local_depth': 2, 'keys': [3, 7]}}
+6 ['split bucket 0; local depth 2; new bucket 4'] gd= 3 {'0': {'bucket_id': 0, 'local_depth': 2, 'keys': [4]}, '1': {'bucket_id': 1, 'local_depth': 3, 'keys': [1, 9]}, '2': {'bucket_id': 4, 'local_depth': 2, 'keys': [2, 6]}, '3': {'bucket_id': 2, 'local_depth': 2, 'keys': [3, 7]}, '4': {'bucket_id': 0, 'local_depth': 2, 'keys': [4]}, '5': {'bucket_id': 3, 'local_depth': 3, 'keys': [5]}, '6': {'bucket_id': 4, 'local_depth': 2, 'keys': [2, 6]}, '7': {'bucket_id': 2, 'local_depth': 2, 'keys': [3, 7]}}
+
+LINEAR HASH
+2 [] level= 1 split= 0 buckets= {'0': [2], '1': []}
+4 [] level= 1 split= 0 buckets= {'0': [2, 4], '1': []}
+6 ['split bucket 0 -> 0 and 2'] level= 1 split= 1 buckets= {'0': [4], '1': [], '2': [2, 6]}
+8 [] level= 1 split= 1 buckets= {'0': [4, 8], '1': [], '2': [2, 6]}
+1 [] level= 1 split= 1 buckets= {'0': [4, 8], '1': [1], '2': [2, 6]}
+3 [] level= 1 split= 1 buckets= {'0': [4, 8], '1': [1, 3], '2': [2, 6]}
+5 ['split bucket 1 -> 1 and 3', 'level advanced to 2; split pointer reset'] level= 2 split= 0 buckets= {'0': [4, 8], '1': [1, 5], '2': [2, 6], '3': [3]}
+7 [] level= 2 split= 0 buckets= {'0': [4, 8], '1': [1, 5], '2': [2, 6], '3': [3, 7]}
+9 ['split bucket 0 -> 0 and 4'] level= 2 split= 1 buckets= {'0': [8], '1': [1, 5, 9], '2': [2, 6], '3': [3, 7], '4': [4]}
+11 ['split bucket 1 -> 1 and 5'] level= 2 split= 2 buckets= {'0': [8], '1': [1, 9], '2': [2, 6], '3': [3, 7, 11], '4': [4], '5': [5]}
+13 [] level= 2 split= 2 buckets= {'0': [8], '1': [1, 9], '2': [2, 6], '3': [3, 7, 11], '4': [4], '5': [5, 13]}
+15 ['split bucket 2 -> 2 and 6'] level= 2 split= 3 buckets= {'0': [8], '1': [1, 9], '2': [2], '3': [3, 7, 11, 15], '4': [4], '5': [5, 13], '6': [6]}
+
+Saved Results/hash_traces.json

@@ -1,0 +1,1494 @@
+{
+  "static_hash": {
+    "trace": [
+      {
+        "insert": 12,
+        "bucket": 2,
+        "buckets": [
+          [],
+          [],
+          [
+            12
+          ],
+          [],
+          []
+        ],
+        "overflow": 0
+      },
+      {
+        "insert": 7,
+        "bucket": 2,
+        "buckets": [
+          [],
+          [],
+          [
+            12,
+            7
+          ],
+          [],
+          []
+        ],
+        "overflow": 0
+      },
+      {
+        "insert": 22,
+        "bucket": 2,
+        "buckets": [
+          [],
+          [],
+          [
+            12,
+            7,
+            22
+          ],
+          [],
+          []
+        ],
+        "overflow": 1
+      },
+      {
+        "insert": 17,
+        "bucket": 2,
+        "buckets": [
+          [],
+          [],
+          [
+            12,
+            7,
+            22,
+            17
+          ],
+          [],
+          []
+        ],
+        "overflow": 1
+      },
+      {
+        "insert": 9,
+        "bucket": 4,
+        "buckets": [
+          [],
+          [],
+          [
+            12,
+            7,
+            22,
+            17
+          ],
+          [],
+          [
+            9
+          ]
+        ],
+        "overflow": 0
+      },
+      {
+        "insert": 14,
+        "bucket": 4,
+        "buckets": [
+          [],
+          [],
+          [
+            12,
+            7,
+            22,
+            17
+          ],
+          [],
+          [
+            9,
+            14
+          ]
+        ],
+        "overflow": 0
+      },
+      {
+        "insert": 19,
+        "bucket": 4,
+        "buckets": [
+          [],
+          [],
+          [
+            12,
+            7,
+            22,
+            17
+          ],
+          [],
+          [
+            9,
+            14,
+            19
+          ]
+        ],
+        "overflow": 1
+      },
+      {
+        "insert": 24,
+        "bucket": 4,
+        "buckets": [
+          [],
+          [],
+          [
+            12,
+            7,
+            22,
+            17
+          ],
+          [],
+          [
+            9,
+            14,
+            19,
+            24
+          ]
+        ],
+        "overflow": 1
+      },
+      {
+        "insert": 29,
+        "bucket": 4,
+        "buckets": [
+          [],
+          [],
+          [
+            12,
+            7,
+            22,
+            17
+          ],
+          [],
+          [
+            9,
+            14,
+            19,
+            24,
+            29
+          ]
+        ],
+        "overflow": 2
+      },
+      {
+        "insert": 34,
+        "bucket": 4,
+        "buckets": [
+          [],
+          [],
+          [
+            12,
+            7,
+            22,
+            17
+          ],
+          [],
+          [
+            9,
+            14,
+            19,
+            24,
+            29,
+            34
+          ]
+        ],
+        "overflow": 2
+      }
+    ],
+    "final_buckets": [
+      [],
+      [],
+      [
+        12,
+        7,
+        22,
+        17
+      ],
+      [],
+      [
+        9,
+        14,
+        19,
+        24,
+        29,
+        34
+      ]
+    ]
+  },
+  "extendible_hash": [
+    {
+      "insert": 1,
+      "events": [],
+      "global_depth": 1,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 1,
+          "keys": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "insert": 3,
+      "events": [],
+      "global_depth": 1,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 1,
+          "keys": [
+            1,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "insert": 5,
+      "events": [
+        "directory doubled: global depth 2",
+        "split bucket 1; local depth 2; new bucket 2"
+      ],
+      "global_depth": 2,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 2,
+          "keys": [
+            1,
+            5
+          ]
+        },
+        "2": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "insert": 7,
+      "events": [],
+      "global_depth": 2,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 2,
+          "keys": [
+            1,
+            5
+          ]
+        },
+        "2": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 9,
+      "events": [
+        "directory doubled: global depth 3",
+        "split bucket 1; local depth 3; new bucket 3"
+      ],
+      "global_depth": 3,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 3,
+          "keys": [
+            1,
+            9
+          ]
+        },
+        "2": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 3,
+          "keys": [
+            5
+          ]
+        },
+        "6": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": []
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 2,
+      "events": [],
+      "global_depth": 3,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": [
+            2
+          ]
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 3,
+          "keys": [
+            1,
+            9
+          ]
+        },
+        "2": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": [
+            2
+          ]
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": [
+            2
+          ]
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 3,
+          "keys": [
+            5
+          ]
+        },
+        "6": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": [
+            2
+          ]
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 4,
+      "events": [],
+      "global_depth": 3,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": [
+            2,
+            4
+          ]
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 3,
+          "keys": [
+            1,
+            9
+          ]
+        },
+        "2": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": [
+            2,
+            4
+          ]
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": [
+            2,
+            4
+          ]
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 3,
+          "keys": [
+            5
+          ]
+        },
+        "6": {
+          "bucket_id": 0,
+          "local_depth": 1,
+          "keys": [
+            2,
+            4
+          ]
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 6,
+      "events": [
+        "split bucket 0; local depth 2; new bucket 4"
+      ],
+      "global_depth": 3,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4
+          ]
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 3,
+          "keys": [
+            1,
+            9
+          ]
+        },
+        "2": {
+          "bucket_id": 4,
+          "local_depth": 2,
+          "keys": [
+            2,
+            6
+          ]
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4
+          ]
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 3,
+          "keys": [
+            5
+          ]
+        },
+        "6": {
+          "bucket_id": 4,
+          "local_depth": 2,
+          "keys": [
+            2,
+            6
+          ]
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 8,
+      "events": [],
+      "global_depth": 3,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 3,
+          "keys": [
+            1,
+            9
+          ]
+        },
+        "2": {
+          "bucket_id": 4,
+          "local_depth": 2,
+          "keys": [
+            2,
+            6
+          ]
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 3,
+          "keys": [
+            5
+          ]
+        },
+        "6": {
+          "bucket_id": 4,
+          "local_depth": 2,
+          "keys": [
+            2,
+            6
+          ]
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 10,
+      "events": [
+        "split bucket 4; local depth 3; new bucket 5"
+      ],
+      "global_depth": 3,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 3,
+          "keys": [
+            1,
+            9
+          ]
+        },
+        "2": {
+          "bucket_id": 4,
+          "local_depth": 3,
+          "keys": [
+            2,
+            10
+          ]
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 3,
+          "keys": [
+            5
+          ]
+        },
+        "6": {
+          "bucket_id": 5,
+          "local_depth": 3,
+          "keys": [
+            6
+          ]
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 13,
+      "events": [],
+      "global_depth": 3,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 3,
+          "keys": [
+            1,
+            9
+          ]
+        },
+        "2": {
+          "bucket_id": 4,
+          "local_depth": 3,
+          "keys": [
+            2,
+            10
+          ]
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 3,
+          "keys": [
+            5,
+            13
+          ]
+        },
+        "6": {
+          "bucket_id": 5,
+          "local_depth": 3,
+          "keys": [
+            6
+          ]
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 17,
+      "events": [
+        "directory doubled: global depth 4",
+        "split bucket 1; local depth 4; new bucket 6"
+      ],
+      "global_depth": 4,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 4,
+          "keys": [
+            1,
+            17
+          ]
+        },
+        "2": {
+          "bucket_id": 4,
+          "local_depth": 3,
+          "keys": [
+            2,
+            10
+          ]
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 3,
+          "keys": [
+            5,
+            13
+          ]
+        },
+        "6": {
+          "bucket_id": 5,
+          "local_depth": 3,
+          "keys": [
+            6
+          ]
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "8": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "9": {
+          "bucket_id": 6,
+          "local_depth": 4,
+          "keys": [
+            9
+          ]
+        },
+        "10": {
+          "bucket_id": 4,
+          "local_depth": 3,
+          "keys": [
+            2,
+            10
+          ]
+        },
+        "11": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "12": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "13": {
+          "bucket_id": 3,
+          "local_depth": 3,
+          "keys": [
+            5,
+            13
+          ]
+        },
+        "14": {
+          "bucket_id": 5,
+          "local_depth": 3,
+          "keys": [
+            6
+          ]
+        },
+        "15": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 21,
+      "events": [
+        "split bucket 3; local depth 4; new bucket 7"
+      ],
+      "global_depth": 4,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 4,
+          "keys": [
+            1,
+            17
+          ]
+        },
+        "2": {
+          "bucket_id": 4,
+          "local_depth": 3,
+          "keys": [
+            2,
+            10
+          ]
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 4,
+          "keys": [
+            5,
+            21
+          ]
+        },
+        "6": {
+          "bucket_id": 5,
+          "local_depth": 3,
+          "keys": [
+            6
+          ]
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "8": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "9": {
+          "bucket_id": 6,
+          "local_depth": 4,
+          "keys": [
+            9
+          ]
+        },
+        "10": {
+          "bucket_id": 4,
+          "local_depth": 3,
+          "keys": [
+            2,
+            10
+          ]
+        },
+        "11": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "12": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "13": {
+          "bucket_id": 7,
+          "local_depth": 4,
+          "keys": [
+            13
+          ]
+        },
+        "14": {
+          "bucket_id": 5,
+          "local_depth": 3,
+          "keys": [
+            6
+          ]
+        },
+        "15": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "insert": 25,
+      "events": [],
+      "global_depth": 4,
+      "directory": {
+        "0": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "1": {
+          "bucket_id": 1,
+          "local_depth": 4,
+          "keys": [
+            1,
+            17
+          ]
+        },
+        "2": {
+          "bucket_id": 4,
+          "local_depth": 3,
+          "keys": [
+            2,
+            10
+          ]
+        },
+        "3": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "4": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "5": {
+          "bucket_id": 3,
+          "local_depth": 4,
+          "keys": [
+            5,
+            21
+          ]
+        },
+        "6": {
+          "bucket_id": 5,
+          "local_depth": 3,
+          "keys": [
+            6
+          ]
+        },
+        "7": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "8": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "9": {
+          "bucket_id": 6,
+          "local_depth": 4,
+          "keys": [
+            9,
+            25
+          ]
+        },
+        "10": {
+          "bucket_id": 4,
+          "local_depth": 3,
+          "keys": [
+            2,
+            10
+          ]
+        },
+        "11": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        },
+        "12": {
+          "bucket_id": 0,
+          "local_depth": 2,
+          "keys": [
+            4,
+            8
+          ]
+        },
+        "13": {
+          "bucket_id": 7,
+          "local_depth": 4,
+          "keys": [
+            13
+          ]
+        },
+        "14": {
+          "bucket_id": 5,
+          "local_depth": 3,
+          "keys": [
+            6
+          ]
+        },
+        "15": {
+          "bucket_id": 2,
+          "local_depth": 2,
+          "keys": [
+            3,
+            7
+          ]
+        }
+      }
+    }
+  ],
+  "linear_hash": [
+    {
+      "insert": 2,
+      "bucket_before_split": 0,
+      "events": [],
+      "level": 1,
+      "split_pointer": 0,
+      "buckets": {
+        "0": [
+          2
+        ],
+        "1": []
+      }
+    },
+    {
+      "insert": 4,
+      "bucket_before_split": 0,
+      "events": [],
+      "level": 1,
+      "split_pointer": 0,
+      "buckets": {
+        "0": [
+          2,
+          4
+        ],
+        "1": []
+      }
+    },
+    {
+      "insert": 6,
+      "bucket_before_split": 0,
+      "events": [
+        "split bucket 0 -> 0 and 2"
+      ],
+      "level": 1,
+      "split_pointer": 1,
+      "buckets": {
+        "0": [
+          4
+        ],
+        "1": [],
+        "2": [
+          2,
+          6
+        ]
+      }
+    },
+    {
+      "insert": 8,
+      "bucket_before_split": 0,
+      "events": [],
+      "level": 1,
+      "split_pointer": 1,
+      "buckets": {
+        "0": [
+          4,
+          8
+        ],
+        "1": [],
+        "2": [
+          2,
+          6
+        ]
+      }
+    },
+    {
+      "insert": 1,
+      "bucket_before_split": 1,
+      "events": [],
+      "level": 1,
+      "split_pointer": 1,
+      "buckets": {
+        "0": [
+          4,
+          8
+        ],
+        "1": [
+          1
+        ],
+        "2": [
+          2,
+          6
+        ]
+      }
+    },
+    {
+      "insert": 3,
+      "bucket_before_split": 1,
+      "events": [],
+      "level": 1,
+      "split_pointer": 1,
+      "buckets": {
+        "0": [
+          4,
+          8
+        ],
+        "1": [
+          1,
+          3
+        ],
+        "2": [
+          2,
+          6
+        ]
+      }
+    },
+    {
+      "insert": 5,
+      "bucket_before_split": 1,
+      "events": [
+        "split bucket 1 -> 1 and 3",
+        "level advanced to 2; split pointer reset"
+      ],
+      "level": 2,
+      "split_pointer": 0,
+      "buckets": {
+        "0": [
+          4,
+          8
+        ],
+        "1": [
+          1,
+          5
+        ],
+        "2": [
+          2,
+          6
+        ],
+        "3": [
+          3
+        ]
+      }
+    },
+    {
+      "insert": 7,
+      "bucket_before_split": 3,
+      "events": [],
+      "level": 2,
+      "split_pointer": 0,
+      "buckets": {
+        "0": [
+          4,
+          8
+        ],
+        "1": [
+          1,
+          5
+        ],
+        "2": [
+          2,
+          6
+        ],
+        "3": [
+          3,
+          7
+        ]
+      }
+    },
+    {
+      "insert": 9,
+      "bucket_before_split": 1,
+      "events": [
+        "split bucket 0 -> 0 and 4"
+      ],
+      "level": 2,
+      "split_pointer": 1,
+      "buckets": {
+        "0": [
+          8
+        ],
+        "1": [
+          1,
+          5,
+          9
+        ],
+        "2": [
+          2,
+          6
+        ],
+        "3": [
+          3,
+          7
+        ],
+        "4": [
+          4
+        ]
+      }
+    },
+    {
+      "insert": 11,
+      "bucket_before_split": 3,
+      "events": [
+        "split bucket 1 -> 1 and 5"
+      ],
+      "level": 2,
+      "split_pointer": 2,
+      "buckets": {
+        "0": [
+          8
+        ],
+        "1": [
+          1,
+          9
+        ],
+        "2": [
+          2,
+          6
+        ],
+        "3": [
+          3,
+          7,
+          11
+        ],
+        "4": [
+          4
+        ],
+        "5": [
+          5
+        ]
+      }
+    },
+    {
+      "insert": 13,
+      "bucket_before_split": 5,
+      "events": [],
+      "level": 2,
+      "split_pointer": 2,
+      "buckets": {
+        "0": [
+          8
+        ],
+        "1": [
+          1,
+          9
+        ],
+        "2": [
+          2,
+          6
+        ],
+        "3": [
+          3,
+          7,
+          11
+        ],
+        "4": [
+          4
+        ],
+        "5": [
+          5,
+          13
+        ]
+      }
+    },
+    {
+      "insert": 15,
+      "bucket_before_split": 3,
+      "events": [
+        "split bucket 2 -> 2 and 6"
+      ],
+      "level": 2,
+      "split_pointer": 3,
+      "buckets": {
+        "0": [
+          8
+        ],
+        "1": [
+          1,
+          9
+        ],
+        "2": [
+          2
+        ],
+        "3": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "4": [
+          4
+        ],
+        "5": [
+          5,
+          13
+        ],
+        "6": [
+          6
+        ]
+      }
+    }
+  ]
+}
