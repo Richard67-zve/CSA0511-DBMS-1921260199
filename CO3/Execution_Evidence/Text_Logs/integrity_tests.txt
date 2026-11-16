@@ -1,0 +1,5 @@
+SHOPNEST CO3 SQLITE INTEGRITY TESTS
+duplicate_order_item: UNIQUE constraint failed: order_item.OrderID, order_item.ProductID
+invalid_product_fk: FOREIGN KEY constraint failed
+quantity_check: CHECK constraint failed: Quantity>0
+All three invalid writes were rejected by the tested SQLite constraints.

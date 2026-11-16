@@ -1,0 +1,9 @@
+test,observed_outcome,detail
+UNF product-only insertion,NOT REPRESENTABLE,ORDER_LINE requires an order observation; no independent PRODUCT relation exists.
+UNF delete last observation,CATALOGUE FACT LOST,Deleting the final observation removed the only ProductName copy.
+UNF supplier phone update,REPEATED ROWS UPDATED,5 observation rows changed for one supplier fact.
+Normalised product-only insertion,ALLOWED,Product exists with no order line: 1
+Normalised deletion of last order,CATALOGUE AND CUSTOMER PRESERVED,Product rows=1; Customer rows=1.
+Product with no tags/colours,VALID,Product remains; tag rows=0; colour rows=0.
+Normalised supplier update,ONE MASTER ROW,Supplier phone is now 9111111111; referenced product remains unchanged.
+Task 12 paid-price snapshot,PRESERVED,Paid price=22.5; current catalogue price=27.0.

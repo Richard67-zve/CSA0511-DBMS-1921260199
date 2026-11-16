@@ -1,0 +1,6 @@
+SHOPNEST CO3 THEORY CHECKS
+MVD combined product-tag-colour rows: 8; separate ProductTag rows: 2; ProductColour rows: 4; reconstructed exactly: True
+5NF triple relation rows: 6; projections SC=6, CW=4, SW=6; all-three join rows=6; exact=True
+Pairwise joins rows: SC⋈SW=12, SC⋈CW=9, SW⋈CW=9; each creates spurious triples=True
+Candidate key closure (OrderID, ProductID) reaches all attributes: True
+Proper-subset test: OrderID alone and ProductID alone are not superkeys.

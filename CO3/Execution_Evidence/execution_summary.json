@@ -1,0 +1,28 @@
+{
+  "environment": {
+    "python": "3.13.5",
+    "sqlite": "3.46.1",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "anomaly_demo": {
+    "UNF_supplier_8_copies": 5,
+    "distinct_phone_values_before": 1,
+    "distinct_phone_values_after_consistent_update": 1
+  },
+  "integrity_tests": [
+    [
+      "duplicate_order_item",
+      "UNIQUE constraint failed: order_item.OrderID, order_item.ProductID"
+    ],
+    [
+      "invalid_product_fk",
+      "FOREIGN KEY constraint failed"
+    ],
+    [
+      "quantity_check",
+      "CHECK constraint failed: Quantity>0"
+    ]
+  ],
+  "benchmark_rows": 12,
+  "sample_csv": "/mnt/data/co3_build/CO3/Data/order_line_sample_12.csv"
+}

@@ -1,0 +1,5 @@
+# Core benchmark and theory scripts use only the Python standard library.
+# Plot generation:
+matplotlib>=3.8
+# Optional MySQL loader (not run in the authoring environment):
+mysql-connector-python>=8.3
