@@ -1,0 +1,3 @@
+CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100
+PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: observation.SenderID, observation.ServiceID, observation.DispatchWave
+FOREIGN KEY rejected orphan sender: FOREIGN KEY constraint failed

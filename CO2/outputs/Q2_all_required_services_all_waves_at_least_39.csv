@@ -1,0 +1,21 @@
+SenderID,SenderName,RouteGroup
+1,Sender 00001,RG-A
+2,Sender 00002,RG-B
+3,Sender 00003,RG-C
+4,Sender 00004,RG-D
+21,Sender 00021,RG-A
+22,Sender 00022,RG-B
+23,Sender 00023,RG-C
+24,Sender 00024,RG-D
+41,Sender 00041,RG-A
+42,Sender 00042,RG-B
+43,Sender 00043,RG-C
+44,Sender 00044,RG-D
+61,Sender 00061,RG-A
+62,Sender 00062,RG-B
+63,Sender 00063,RG-C
+64,Sender 00064,RG-D
+81,Sender 00081,RG-A
+82,Sender 00082,RG-B
+83,Sender 00083,RG-C
+84,Sender 00084,RG-D

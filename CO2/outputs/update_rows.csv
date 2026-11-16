@@ -1,0 +1,10 @@
+observations,design,rows_updated_for_ServiceID_1,rows_updated_for_CoordinatorID_1
+10000,flat,500,200
+10000,partial,1,200
+10000,bcnf,1,1
+100000,flat,5000,2000
+100000,partial,1,2000
+100000,bcnf,1,1
+600000,flat,30000,12000
+600000,partial,1,12000
+600000,bcnf,1,1

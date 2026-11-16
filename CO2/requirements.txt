@@ -1,0 +1,5 @@
+# Core experiments use Python standard library modules (sqlite3, csv, json, statistics, time).
+matplotlib==3.10.8
+Pillow==12.3.0
+# Optional, only needed for Python_Scripts/load_mysql.py:
+mysql-connector-python>=9.0

@@ -1,0 +1,59 @@
+[
+  {
+    "observations": 10000,
+    "flat_checksum": [
+      10000,
+      556086,
+      105000
+    ],
+    "partial_checksum": [
+      10000,
+      556086,
+      105000
+    ],
+    "bcnf_checksum": [
+      10000,
+      556086,
+      105000
+    ],
+    "equivalent": true
+  },
+  {
+    "observations": 100000,
+    "flat_checksum": [
+      100000,
+      5581596,
+      1050000
+    ],
+    "partial_checksum": [
+      100000,
+      5581596,
+      1050000
+    ],
+    "bcnf_checksum": [
+      100000,
+      5581596,
+      1050000
+    ],
+    "equivalent": true
+  },
+  {
+    "observations": 600000,
+    "flat_checksum": [
+      600000,
+      33451704,
+      6300000
+    ],
+    "partial_checksum": [
+      600000,
+      33451704,
+      6300000
+    ],
+    "bcnf_checksum": [
+      600000,
+      33451704,
+      6300000
+    ],
+    "equivalent": true
+  }
+]

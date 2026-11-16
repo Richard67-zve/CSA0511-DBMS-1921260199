@@ -1,0 +1,3 @@
+10000 PASS {'flat': '581fa381d4d86651', 'partial': '581fa381d4d86651', 'bcnf': '581fa381d4d86651'}
+100000 PASS {'flat': '72e899b84db0be5f', 'partial': '72e899b84db0be5f', 'bcnf': '72e899b84db0be5f'}
+600000 PASS {'flat': 'db1884213470b891', 'partial': 'db1884213470b891', 'bcnf': 'db1884213470b891'}

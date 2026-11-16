@@ -1,0 +1,7 @@
+MySQL-specific execution status
+================================
+The MySQL 8.0.16+ DDL, views, query scripts, read-card refresh and integrity trial statements are included in SQL/.
+A live MySQL server was not available in the report-building environment, so those scripts have NOT been executed here.
+
+The benchmark data generation, measured storage, query timings, result-equivalence checks and integrity-failure examples in outputs/ were executed using SQLite 3.46.1 via the included Python scripts.
+Do not present the SQLite terminal logs as MySQL output. To complete MySQL-specific evidence, run SQL/RUN_ORDER.txt on a MySQL server and add genuine client screenshots to this folder.

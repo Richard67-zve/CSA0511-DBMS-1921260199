@@ -1,0 +1,47 @@
+
+Q1_actor1_wave4 | rows returned/displayed: 5
+SenderID | SenderName | ServiceID | ServiceCode | ServiceName | DispatchWave | Completion | ServiceBand | RouteFactor | AdjustedIndex
+1 | Sender 00001 | 1 | SVC-001 | Service 01 | 4 | 89 | HIGH | 0.85 | 56.7375
+1 | Sender 00001 | 2 | SVC-002 | Service 02 | 4 | 65 | STANDARD | 1.0 | 65.0
+1 | Sender 00001 | 3 | SVC-003 | Service 03 | 4 | 75 | HIGH | 0.85 | 79.6875
+1 | Sender 00001 | 4 | SVC-004 | Service 04 | 4 | 69 | STANDARD | 1.0 | 103.5
+1 | Sender 00001 | 5 | SVC-005 | Service 05 | 4 | 87 | HIGH | 0.85 | 36.975
+
+Q2_all_required_services_all_waves_at_least_39 | rows returned/displayed: 20
+SenderID | SenderName | RouteGroup
+1 | Sender 00001 | RG-A
+2 | Sender 00002 | RG-B
+3 | Sender 00003 | RG-C
+4 | Sender 00004 | RG-D
+21 | Sender 00021 | RG-A
+22 | Sender 00022 | RG-B
+23 | Sender 00023 | RG-C
+24 | Sender 00024 | RG-D
+
+Q3_observed_wave4_services_no_value_below_39 | rows returned/displayed: 1
+ServiceID | ServiceCode | ServiceName
+5 | SVC-005 | Service 05
+
+Q4_coordinator_mean_below_observation_weighted_hub_mean | rows returned/displayed: 19
+CoordinatorID | CoordinatorName | Hub | ROUND(cm.CoordMean,3) | ROUND(hm.HubMean,3) | N
+15 | Coordinator 15 | Hub-01 | 49.866 | 55.568 | 12000
+8 | Coordinator 08 | Hub-01 | 49.888 | 55.568 | 12000
+22 | Coordinator 22 | Hub-01 | 49.904 | 55.568 | 12000
+9 | Coordinator 09 | Hub-02 | 51.105 | 56.672 | 18000
+30 | Coordinator 30 | Hub-02 | 51.58 | 56.672 | 18000
+2 | Coordinator 02 | Hub-02 | 51.6 | 56.672 | 18000
+24 | Coordinator 24 | Hub-03 | 49.709 | 55.554 | 18000
+3 | Coordinator 03 | Hub-03 | 49.823 | 55.554 | 18000
+
+Q5_senders_with_low_observations_in_at_least_3_waves | rows returned/displayed: 20
+SenderID | SenderName | LowWaves
+5 | Sender 00005 | 3
+6 | Sender 00006 | 3
+7 | Sender 00007 | 4
+8 | Sender 00008 | 4
+9 | Sender 00009 | 4
+10 | Sender 00010 | 4
+11 | Sender 00011 | 4
+12 | Sender 00012 | 4
+
+Query CSV files and case_query_results.json written to outputs/.

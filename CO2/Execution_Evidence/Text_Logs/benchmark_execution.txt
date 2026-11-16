@@ -1,0 +1,42 @@
+CSA05 CO2 - SWIFTSPAN PARCELS LOCAL EXECUTION LOG
+Engine: SQLite 3.46.1 | Python 3.13.5
+Seed: 4211 | Logical rows per sender: 5 services x 4 waves
+NOTE: This is local SQLite verification, not a live MySQL server execution.
+
+DATASET 10,000 observations / 500 senders
+  FLAT    load=0.0750s, median query=0.0150ms, joins=0, source=1.309MiB, total=1.312MiB
+  PARTIAL load=0.1162s, median query=0.0150ms, joins=2, source=0.902MiB, total=0.906MiB
+  BCNF    load=0.0993s, median query=0.0185ms, joins=6, source=0.711MiB, total=1.992MiB
+          read-card query=0.0161ms, refresh=0.0271s
+  Logical-equivalence checksum: PASS (count, SUM(Completion), SUM(ServiceID) match)
+DATASET 100,000 observations / 5,000 senders
+  FLAT    load=0.5526s, median query=0.0146ms, joins=0, source=13.297MiB, total=13.301MiB
+  PARTIAL load=0.5241s, median query=0.0151ms, joins=2, source=9.117MiB, total=9.121MiB
+  BCNF    load=0.8030s, median query=0.0192ms, joins=6, source=6.883MiB, total=19.887MiB
+          read-card query=0.0162ms, refresh=0.2591s
+  Logical-equivalence checksum: PASS (count, SUM(Completion), SUM(ServiceID) match)
+DATASET 600,000 observations / 30,000 senders
+  FLAT    load=3.2605s, median query=0.0149ms, joins=0, source=80.258MiB, total=80.262MiB
+  PARTIAL load=3.2460s, median query=0.0152ms, joins=2, source=55.188MiB, total=55.191MiB
+  BCNF    load=5.1788s, median query=0.0202ms, joins=6, source=42.051MiB, total=120.434MiB
+          read-card query=0.0160ms, refresh=1.2274s
+  Logical-equivalence checksum: PASS (count, SUM(Completion), SUM(ServiceID) match)
+
+UPDATE TRIAL: change ServiceName for ServiceID=1; each update was rolled back.
+  10,000 rows | flat    | ServiceID=1 catalog-name rows=500 | CoordinatorID=1 operator-name rows=200
+  10,000 rows | partial | ServiceID=1 catalog-name rows=1 | CoordinatorID=1 operator-name rows=200
+  10,000 rows | bcnf    | ServiceID=1 catalog-name rows=1 | CoordinatorID=1 operator-name rows=1
+  100,000 rows | flat    | ServiceID=1 catalog-name rows=5000 | CoordinatorID=1 operator-name rows=2000
+  100,000 rows | partial | ServiceID=1 catalog-name rows=1 | CoordinatorID=1 operator-name rows=2000
+  100,000 rows | bcnf    | ServiceID=1 catalog-name rows=1 | CoordinatorID=1 operator-name rows=1
+  600,000 rows | flat    | ServiceID=1 catalog-name rows=30000 | CoordinatorID=1 operator-name rows=12000
+  600,000 rows | partial | ServiceID=1 catalog-name rows=1 | CoordinatorID=1 operator-name rows=12000
+  600,000 rows | bcnf    | ServiceID=1 catalog-name rows=1 | CoordinatorID=1 operator-name rows=1
+
+INTEGRITY TRIALS (600,000-row BCNF fixture):
+  CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100
+  PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: observation.SenderID, observation.ServiceID, observation.DispatchWave
+  FOREIGN KEY rejected orphan sender: FOREIGN KEY constraint failed
+
+FULL ROW EQUIVALENCE: see full_observation_equivalence.json (matching SHA-256 across all three designs).
+QUERY OUTPUTS: see case_query_execution.txt and case_query_results.json.

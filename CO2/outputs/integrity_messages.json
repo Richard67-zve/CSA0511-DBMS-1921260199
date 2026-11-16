@@ -1,0 +1,41 @@
+{
+  "10000_flat": [
+    "CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100",
+    "PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: flat_handover.SenderID, flat_handover.ServiceID, flat_handover.DispatchWave"
+  ],
+  "10000_partial": [
+    "CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100",
+    "PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: partial_observation.SenderID, partial_observation.ServiceID, partial_observation.DispatchWave"
+  ],
+  "10000_bcnf": [
+    "CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100",
+    "PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: observation.SenderID, observation.ServiceID, observation.DispatchWave",
+    "FOREIGN KEY rejected orphan sender: FOREIGN KEY constraint failed"
+  ],
+  "100000_flat": [
+    "CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100",
+    "PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: flat_handover.SenderID, flat_handover.ServiceID, flat_handover.DispatchWave"
+  ],
+  "100000_partial": [
+    "CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100",
+    "PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: partial_observation.SenderID, partial_observation.ServiceID, partial_observation.DispatchWave"
+  ],
+  "100000_bcnf": [
+    "CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100",
+    "PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: observation.SenderID, observation.ServiceID, observation.DispatchWave",
+    "FOREIGN KEY rejected orphan sender: FOREIGN KEY constraint failed"
+  ],
+  "600000_flat": [
+    "CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100",
+    "PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: flat_handover.SenderID, flat_handover.ServiceID, flat_handover.DispatchWave"
+  ],
+  "600000_partial": [
+    "CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100",
+    "PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: partial_observation.SenderID, partial_observation.ServiceID, partial_observation.DispatchWave"
+  ],
+  "600000_bcnf": [
+    "CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100",
+    "PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: observation.SenderID, observation.ServiceID, observation.DispatchWave",
+    "FOREIGN KEY rejected orphan sender: FOREIGN KEY constraint failed"
+  ]
+}

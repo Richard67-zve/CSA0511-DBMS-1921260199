@@ -1,0 +1,85 @@
+{
+  "four_nf": {
+    "mode_count": 3,
+    "document_count": 3,
+    "combined_cross_product_rows": 9,
+    "decomposed_rows": 6,
+    "mvd_statement": "ServiceID ->> TransportMode and ServiceID ->> DocumentType"
+  },
+  "five_nf": {
+    "original_triples": [
+      [
+        "OP-A",
+        "ITEM-1",
+        "WEB"
+      ],
+      [
+        "OP-B",
+        "ITEM-2",
+        "DESK"
+      ]
+    ],
+    "pairwise_join_result": [
+      [
+        "OP-A",
+        "ITEM-1",
+        "WEB"
+      ],
+      [
+        "OP-B",
+        "ITEM-2",
+        "DESK"
+      ]
+    ],
+    "lossless_join": true
+  },
+  "wrong_common_serviceid_split": {
+    "correct_rows": [
+      [
+        "S1",
+        1,
+        1,
+        7,
+        "Coord 7"
+      ],
+      [
+        "S2",
+        1,
+        1,
+        9,
+        "Coord 9"
+      ]
+    ],
+    "join_rows": [
+      [
+        "S1",
+        1,
+        1,
+        7,
+        "Coord 7"
+      ],
+      [
+        "S1",
+        1,
+        1,
+        9,
+        "Coord 9"
+      ],
+      [
+        "S2",
+        1,
+        1,
+        7,
+        "Coord 7"
+      ],
+      [
+        "S2",
+        1,
+        1,
+        9,
+        "Coord 9"
+      ]
+    ],
+    "spurious_rows": 2
+  }
+}

@@ -1,0 +1,479 @@
+{
+  "Q1_actor1_wave4": {
+    "columns": [
+      "SenderID",
+      "SenderName",
+      "ServiceID",
+      "ServiceCode",
+      "ServiceName",
+      "DispatchWave",
+      "Completion",
+      "ServiceBand",
+      "RouteFactor",
+      "AdjustedIndex"
+    ],
+    "row_count_returned": 5,
+    "sample_rows": [
+      [
+        1,
+        "Sender 00001",
+        1,
+        "SVC-001",
+        "Service 01",
+        4,
+        89,
+        "HIGH",
+        0.85,
+        56.7375
+      ],
+      [
+        1,
+        "Sender 00001",
+        2,
+        "SVC-002",
+        "Service 02",
+        4,
+        65,
+        "STANDARD",
+        1.0,
+        65.0
+      ],
+      [
+        1,
+        "Sender 00001",
+        3,
+        "SVC-003",
+        "Service 03",
+        4,
+        75,
+        "HIGH",
+        0.85,
+        79.6875
+      ],
+      [
+        1,
+        "Sender 00001",
+        4,
+        "SVC-004",
+        "Service 04",
+        4,
+        69,
+        "STANDARD",
+        1.0,
+        103.5
+      ],
+      [
+        1,
+        "Sender 00001",
+        5,
+        "SVC-005",
+        "Service 05",
+        4,
+        87,
+        "HIGH",
+        0.85,
+        36.975
+      ]
+    ]
+  },
+  "Q2_all_required_services_all_waves_at_least_39": {
+    "columns": [
+      "SenderID",
+      "SenderName",
+      "RouteGroup"
+    ],
+    "row_count_returned": 20,
+    "sample_rows": [
+      [
+        1,
+        "Sender 00001",
+        "RG-A"
+      ],
+      [
+        2,
+        "Sender 00002",
+        "RG-B"
+      ],
+      [
+        3,
+        "Sender 00003",
+        "RG-C"
+      ],
+      [
+        4,
+        "Sender 00004",
+        "RG-D"
+      ],
+      [
+        21,
+        "Sender 00021",
+        "RG-A"
+      ],
+      [
+        22,
+        "Sender 00022",
+        "RG-B"
+      ],
+      [
+        23,
+        "Sender 00023",
+        "RG-C"
+      ],
+      [
+        24,
+        "Sender 00024",
+        "RG-D"
+      ],
+      [
+        41,
+        "Sender 00041",
+        "RG-A"
+      ],
+      [
+        42,
+        "Sender 00042",
+        "RG-B"
+      ],
+      [
+        43,
+        "Sender 00043",
+        "RG-C"
+      ],
+      [
+        44,
+        "Sender 00044",
+        "RG-D"
+      ],
+      [
+        61,
+        "Sender 00061",
+        "RG-A"
+      ],
+      [
+        62,
+        "Sender 00062",
+        "RG-B"
+      ],
+      [
+        63,
+        "Sender 00063",
+        "RG-C"
+      ],
+      [
+        64,
+        "Sender 00064",
+        "RG-D"
+      ],
+      [
+        81,
+        "Sender 00081",
+        "RG-A"
+      ],
+      [
+        82,
+        "Sender 00082",
+        "RG-B"
+      ],
+      [
+        83,
+        "Sender 00083",
+        "RG-C"
+      ],
+      [
+        84,
+        "Sender 00084",
+        "RG-D"
+      ]
+    ]
+  },
+  "Q3_observed_wave4_services_no_value_below_39": {
+    "columns": [
+      "ServiceID",
+      "ServiceCode",
+      "ServiceName"
+    ],
+    "row_count_returned": 1,
+    "sample_rows": [
+      [
+        5,
+        "SVC-005",
+        "Service 05"
+      ]
+    ]
+  },
+  "Q4_coordinator_mean_below_observation_weighted_hub_mean": {
+    "columns": [
+      "CoordinatorID",
+      "CoordinatorName",
+      "Hub",
+      "ROUND(cm.CoordMean,3)",
+      "ROUND(hm.HubMean,3)",
+      "N"
+    ],
+    "row_count_returned": 19,
+    "sample_rows": [
+      [
+        15,
+        "Coordinator 15",
+        "Hub-01",
+        49.866,
+        55.568,
+        12000
+      ],
+      [
+        8,
+        "Coordinator 08",
+        "Hub-01",
+        49.888,
+        55.568,
+        12000
+      ],
+      [
+        22,
+        "Coordinator 22",
+        "Hub-01",
+        49.904,
+        55.568,
+        12000
+      ],
+      [
+        9,
+        "Coordinator 09",
+        "Hub-02",
+        51.105,
+        56.672,
+        18000
+      ],
+      [
+        30,
+        "Coordinator 30",
+        "Hub-02",
+        51.58,
+        56.672,
+        18000
+      ],
+      [
+        2,
+        "Coordinator 02",
+        "Hub-02",
+        51.6,
+        56.672,
+        18000
+      ],
+      [
+        24,
+        "Coordinator 24",
+        "Hub-03",
+        49.709,
+        55.554,
+        18000
+      ],
+      [
+        3,
+        "Coordinator 03",
+        "Hub-03",
+        49.823,
+        55.554,
+        18000
+      ],
+      [
+        31,
+        "Coordinator 31",
+        "Hub-03",
+        50.063,
+        55.554,
+        18000
+      ],
+      [
+        25,
+        "Coordinator 25",
+        "Hub-04",
+        49.674,
+        55.478,
+        18000
+      ],
+      [
+        18,
+        "Coordinator 18",
+        "Hub-04",
+        50.17,
+        55.478,
+        18000
+      ],
+      [
+        5,
+        "Coordinator 05",
+        "Hub-05",
+        49.934,
+        55.516,
+        18000
+      ],
+      [
+        12,
+        "Coordinator 12",
+        "Hub-05",
+        50.215,
+        55.516,
+        18000
+      ],
+      [
+        34,
+        "Coordinator 34",
+        "Hub-06",
+        49.717,
+        55.661,
+        18000
+      ],
+      [
+        27,
+        "Coordinator 27",
+        "Hub-06",
+        50.076,
+        55.661,
+        18000
+      ],
+      [
+        6,
+        "Coordinator 06",
+        "Hub-06",
+        50.364,
+        55.661,
+        18000
+      ],
+      [
+        28,
+        "Coordinator 28",
+        "Hub-07",
+        49.963,
+        55.759,
+        18000
+      ],
+      [
+        35,
+        "Coordinator 35",
+        "Hub-07",
+        50.125,
+        55.759,
+        18000
+      ],
+      [
+        21,
+        "Coordinator 21",
+        "Hub-07",
+        50.41,
+        55.759,
+        18000
+      ]
+    ]
+  },
+  "Q5_senders_with_low_observations_in_at_least_3_waves": {
+    "columns": [
+      "SenderID",
+      "SenderName",
+      "LowWaves"
+    ],
+    "row_count_returned": 20,
+    "sample_rows": [
+      [
+        5,
+        "Sender 00005",
+        3
+      ],
+      [
+        6,
+        "Sender 00006",
+        3
+      ],
+      [
+        7,
+        "Sender 00007",
+        4
+      ],
+      [
+        8,
+        "Sender 00008",
+        4
+      ],
+      [
+        9,
+        "Sender 00009",
+        4
+      ],
+      [
+        10,
+        "Sender 00010",
+        4
+      ],
+      [
+        11,
+        "Sender 00011",
+        4
+      ],
+      [
+        12,
+        "Sender 00012",
+        4
+      ],
+      [
+        13,
+        "Sender 00013",
+        3
+      ],
+      [
+        14,
+        "Sender 00014",
+        4
+      ],
+      [
+        15,
+        "Sender 00015",
+        3
+      ],
+      [
+        16,
+        "Sender 00016",
+        3
+      ],
+      [
+        17,
+        "Sender 00017",
+        4
+      ],
+      [
+        18,
+        "Sender 00018",
+        4
+      ],
+      [
+        19,
+        "Sender 00019",
+        4
+      ],
+      [
+        20,
+        "Sender 00020",
+        4
+      ],
+      [
+        25,
+        "Sender 00025",
+        4
+      ],
+      [
+        26,
+        "Sender 00026",
+        3
+      ],
+      [
+        27,
+        "Sender 00027",
+        4
+      ],
+      [
+        28,
+        "Sender 00028",
+        3
+      ]
+    ]
+  }
+}

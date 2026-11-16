@@ -1,0 +1,31 @@
+
+=== DATASET 10,000 observations / 500 senders ===
+flat   : load=0.075s query=0.0150ms joins=0 allocated=1.31MiB rowsUpdated=500
+partial: load=0.116s query=0.0150ms joins=2 allocated=0.91MiB rowsUpdated=1
+bcnf   : load=0.099s query=0.0185ms joins=6 allocated=1.99MiB rowsUpdated=1
+        read-card query=0.0161ms refresh=0.027s
+equivalence: PASS [10000, 556086, 105000] [10000, 556086, 105000] [10000, 556086, 105000]
+
+=== DATASET 100,000 observations / 5,000 senders ===
+flat   : load=0.553s query=0.0146ms joins=0 allocated=13.30MiB rowsUpdated=5000
+partial: load=0.524s query=0.0151ms joins=2 allocated=9.12MiB rowsUpdated=1
+bcnf   : load=0.803s query=0.0192ms joins=6 allocated=19.89MiB rowsUpdated=1
+        read-card query=0.0162ms refresh=0.259s
+equivalence: PASS [100000, 5581596, 1050000] [100000, 5581596, 1050000] [100000, 5581596, 1050000]
+
+=== DATASET 600,000 observations / 30,000 senders ===
+flat   : load=3.260s query=0.0149ms joins=0 allocated=80.26MiB rowsUpdated=30000
+partial: load=3.246s query=0.0152ms joins=2 allocated=55.19MiB rowsUpdated=1
+bcnf   : load=5.179s query=0.0202ms joins=6 allocated=120.43MiB rowsUpdated=1
+        read-card query=0.0160ms refresh=1.227s
+equivalence: PASS [600000, 33451704, 6300000] [600000, 33451704, 6300000] [600000, 33451704, 6300000]
+
+=== INTEGRITY TEST MESSAGES (600,000 BCNF) ===
+CHECK constraint rejected invalid Completion: CHECK constraint failed: Completion BETWEEN 0 AND 100
+PRIMARY KEY rejected duplicate observation: UNIQUE constraint failed: observation.SenderID, observation.ServiceID, observation.DispatchWave
+FOREIGN KEY rejected orphan sender: FOREIGN KEY constraint failed
+
+=== RESULT FILES ===
+/mnt/data/co2_work/CO2/outputs/benchmark_summary.csv
+/mnt/data/co2_work/CO2/outputs/integrity_messages.json
+/mnt/data/co2_work/CO2/outputs/equivalence_checks.json

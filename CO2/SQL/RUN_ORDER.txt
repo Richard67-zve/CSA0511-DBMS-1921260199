@@ -1,0 +1,11 @@
+MYSQL 8.0.16+ RUN ORDER
+1. 01_create_schemas_mysql.sql
+2. Run Python_Scripts/load_mysql.py after setting connection environment variables.
+3. 02_views_privileges_mysql.sql
+4. 03_five_case_queries_mysql.sql
+5. 04_task12_read_card_mysql.sql (run after each six-hour reconciliation)
+6. 05_integrity_and_update_trials_mysql.sql (uncomment and execute failure trials one at a time)
+
+The SQL is MySQL-oriented. The included benchmark evidence was executed with SQLite
+as a portable local verifier because no MySQL server was available in the report-build
+environment. Do not label SQLite logs as MySQL executions.

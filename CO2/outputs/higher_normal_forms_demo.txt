@@ -1,0 +1,3 @@
+4NF independent resource sets: 3 modes + 3 document types -> 9 combined combinations; 6 decomposed rows.
+5NF pairwise join equals original triples: True [('OP-A', 'ITEM-1', 'WEB'), ('OP-B', 'ITEM-2', 'DESK')]
+Wrong common-ServiceID split join rows: [('S1', 1, 1, 7, 'Coord 7'), ('S1', 1, 1, 9, 'Coord 9'), ('S2', 1, 1, 7, 'Coord 7'), ('S2', 1, 1, 9, 'Coord 9')] | spurious rows: 2

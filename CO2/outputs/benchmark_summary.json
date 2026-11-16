@@ -1,0 +1,185 @@
+[
+  {
+    "observations": 10000,
+    "actors": 500,
+    "flat": {
+      "rows": 10000,
+      "load_s": 0.075,
+      "query_ms": 0.015,
+      "joins": 0,
+      "pages": 336,
+      "page_size": 4096,
+      "allocated_bytes": 1376256,
+      "allocated_mib": 1.312,
+      "source_pages": 335,
+      "source_allocated_bytes": 1372160,
+      "source_allocated_mib": 1.309,
+      "aggregate": [
+        10000,
+        556086,
+        105000
+      ]
+    },
+    "partial": {
+      "rows": 10000,
+      "load_s": 0.1162,
+      "query_ms": 0.015,
+      "joins": 2,
+      "pages": 232,
+      "page_size": 4096,
+      "allocated_bytes": 950272,
+      "allocated_mib": 0.906,
+      "source_pages": 231,
+      "source_allocated_bytes": 946176,
+      "source_allocated_mib": 0.902,
+      "aggregate": [
+        10000,
+        556086,
+        105000
+      ]
+    },
+    "bcnf": {
+      "rows": 10000,
+      "load_s": 0.0993,
+      "query_ms": 0.0185,
+      "joins": 6,
+      "pages": 510,
+      "page_size": 4096,
+      "allocated_bytes": 2088960,
+      "allocated_mib": 1.992,
+      "source_pages": 182,
+      "source_allocated_bytes": 745472,
+      "source_allocated_mib": 0.711,
+      "aggregate": [
+        10000,
+        556086,
+        105000
+      ],
+      "read_card_query_ms": 0.0161,
+      "read_card_rows": 10000,
+      "read_card_refresh_s": 0.0271
+    }
+  },
+  {
+    "observations": 100000,
+    "actors": 5000,
+    "flat": {
+      "rows": 100000,
+      "load_s": 0.5526,
+      "query_ms": 0.0146,
+      "joins": 0,
+      "pages": 3405,
+      "page_size": 4096,
+      "allocated_bytes": 13946880,
+      "allocated_mib": 13.301,
+      "source_pages": 3404,
+      "source_allocated_bytes": 13942784,
+      "source_allocated_mib": 13.297,
+      "aggregate": [
+        100000,
+        5581596,
+        1050000
+      ]
+    },
+    "partial": {
+      "rows": 100000,
+      "load_s": 0.5241,
+      "query_ms": 0.0151,
+      "joins": 2,
+      "pages": 2335,
+      "page_size": 4096,
+      "allocated_bytes": 9564160,
+      "allocated_mib": 9.121,
+      "source_pages": 2334,
+      "source_allocated_bytes": 9560064,
+      "source_allocated_mib": 9.117,
+      "aggregate": [
+        100000,
+        5581596,
+        1050000
+      ]
+    },
+    "bcnf": {
+      "rows": 100000,
+      "load_s": 0.803,
+      "query_ms": 0.0192,
+      "joins": 6,
+      "pages": 5091,
+      "page_size": 4096,
+      "allocated_bytes": 20852736,
+      "allocated_mib": 19.887,
+      "source_pages": 1762,
+      "source_allocated_bytes": 7217152,
+      "source_allocated_mib": 6.883,
+      "aggregate": [
+        100000,
+        5581596,
+        1050000
+      ],
+      "read_card_query_ms": 0.0162,
+      "read_card_rows": 100000,
+      "read_card_refresh_s": 0.2591
+    }
+  },
+  {
+    "observations": 600000,
+    "actors": 30000,
+    "flat": {
+      "rows": 600000,
+      "load_s": 3.2605,
+      "query_ms": 0.0149,
+      "joins": 0,
+      "pages": 20547,
+      "page_size": 4096,
+      "allocated_bytes": 84160512,
+      "allocated_mib": 80.262,
+      "source_pages": 20546,
+      "source_allocated_bytes": 84156416,
+      "source_allocated_mib": 80.258,
+      "aggregate": [
+        600000,
+        33451704,
+        6300000
+      ]
+    },
+    "partial": {
+      "rows": 600000,
+      "load_s": 3.246,
+      "query_ms": 0.0152,
+      "joins": 2,
+      "pages": 14129,
+      "page_size": 4096,
+      "allocated_bytes": 57872384,
+      "allocated_mib": 55.191,
+      "source_pages": 14128,
+      "source_allocated_bytes": 57868288,
+      "source_allocated_mib": 55.188,
+      "aggregate": [
+        600000,
+        33451704,
+        6300000
+      ]
+    },
+    "bcnf": {
+      "rows": 600000,
+      "load_s": 5.1788,
+      "query_ms": 0.0202,
+      "joins": 6,
+      "pages": 30831,
+      "page_size": 4096,
+      "allocated_bytes": 126283776,
+      "allocated_mib": 120.434,
+      "source_pages": 10765,
+      "source_allocated_bytes": 44093440,
+      "source_allocated_mib": 42.051,
+      "aggregate": [
+        600000,
+        33451704,
+        6300000
+      ],
+      "read_card_query_ms": 0.016,
+      "read_card_rows": 600000,
+      "read_card_refresh_s": 1.2274
+    }
+  }
+]

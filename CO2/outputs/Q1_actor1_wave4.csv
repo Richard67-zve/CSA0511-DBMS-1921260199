@@ -1,0 +1,6 @@
+SenderID,SenderName,ServiceID,ServiceCode,ServiceName,DispatchWave,Completion,ServiceBand,RouteFactor,AdjustedIndex
+1,Sender 00001,1,SVC-001,Service 01,4,89,HIGH,0.85,56.7375
+1,Sender 00001,2,SVC-002,Service 02,4,65,STANDARD,1.0,65.0
+1,Sender 00001,3,SVC-003,Service 03,4,75,HIGH,0.85,79.6875
+1,Sender 00001,4,SVC-004,Service 04,4,69,STANDARD,1.0,103.5
+1,Sender 00001,5,SVC-005,Service 05,4,87,HIGH,0.85,36.975
