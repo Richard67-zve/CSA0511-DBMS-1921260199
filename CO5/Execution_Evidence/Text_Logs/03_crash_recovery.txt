@@ -1,0 +1,166 @@
+{
+  "checkpoint_state": {
+    "Canal-A": 100,
+    "Farm-1": 20,
+    "Canal-B": 60,
+    "Farm-2": 30,
+    "Farm-3": 10
+  },
+  "log": [
+    {
+      "lsn": 10,
+      "txn": "T1",
+      "type": "BEGIN"
+    },
+    {
+      "lsn": 11,
+      "txn": "T1",
+      "type": "UPDATE",
+      "item": "Canal-A",
+      "before": 100,
+      "after": 80
+    },
+    {
+      "lsn": 12,
+      "txn": "T1",
+      "type": "UPDATE",
+      "item": "Farm-1",
+      "before": 20,
+      "after": 40
+    },
+    {
+      "lsn": 13,
+      "txn": "T2",
+      "type": "BEGIN"
+    },
+    {
+      "lsn": 14,
+      "txn": "T2",
+      "type": "UPDATE",
+      "item": "Canal-B",
+      "before": 60,
+      "after": 50
+    },
+    {
+      "lsn": 15,
+      "txn": "T2",
+      "type": "UPDATE",
+      "item": "Farm-2",
+      "before": 30,
+      "after": 40
+    },
+    {
+      "lsn": 16,
+      "txn": "T1",
+      "type": "COMMIT"
+    },
+    {
+      "lsn": 17,
+      "txn": "T3",
+      "type": "BEGIN"
+    },
+    {
+      "lsn": 18,
+      "txn": "T3",
+      "type": "UPDATE",
+      "item": "Canal-A",
+      "before": 80,
+      "after": 75
+    },
+    {
+      "lsn": 19,
+      "txn": "T3",
+      "type": "UPDATE",
+      "item": "Farm-3",
+      "before": 10,
+      "after": 15
+    },
+    {
+      "lsn": 20,
+      "txn": "T2",
+      "type": "COMMIT"
+    },
+    {
+      "lsn": 21,
+      "txn": "T4",
+      "type": "BEGIN"
+    },
+    {
+      "lsn": 22,
+      "txn": "T4",
+      "type": "UPDATE",
+      "item": "Canal-B",
+      "before": 50,
+      "after": 47
+    },
+    {
+      "lsn": 23,
+      "txn": "CRASH",
+      "type": "CRASH"
+    }
+  ],
+  "winners": [
+    "T1",
+    "T2"
+  ],
+  "losers": [
+    "T3",
+    "T4"
+  ],
+  "immediate_update": {
+    "pre_recovery_disk_state": {
+      "Canal-A": 75,
+      "Farm-1": 40,
+      "Canal-B": 47,
+      "Farm-2": 40,
+      "Farm-3": 15
+    },
+    "redo": [
+      "T1 Canal-A=80",
+      "T1 Farm-1=40",
+      "T2 Canal-B=50",
+      "T2 Farm-2=40"
+    ],
+    "undo_reverse_order": [
+      "T4 Canal-B: 47->50",
+      "T3 Farm-3: 15->10",
+      "T3 Canal-A: 75->80"
+    ],
+    "final_state": {
+      "Canal-A": 80,
+      "Farm-1": 40,
+      "Canal-B": 50,
+      "Farm-2": 40,
+      "Farm-3": 10
+    }
+  },
+  "deferred_update": {
+    "redo_winners": [
+      "T1",
+      "T2"
+    ],
+    "undo_losers": [],
+    "final_state": {
+      "Canal-A": 80,
+      "Farm-1": 40,
+      "Canal-B": 50,
+      "Farm-2": 40,
+      "Farm-3": 10
+    }
+  },
+  "token_total_initial": 220,
+  "token_total_final": 220,
+  "restart_model": {
+    "transactions_per_second": 67,
+    "log_bytes_per_transaction": 176,
+    "update_records_per_transaction": 2,
+    "scan_bandwidth_bytes_per_second": 1048576,
+    "redo_updates_per_second": 1600,
+    "undo_updates_per_second": 1500,
+    "fixed_restart_seconds": 2.0,
+    "worst_case_loser_update_records": 200,
+    "formula": "T = 2 + (176*67*I/1048576) + (2*67*I/1600) + (200/1500)",
+    "I_285_seconds": 29.207115681966144,
+    "I_240_seconds": 24.932307942708334
+  }
+}

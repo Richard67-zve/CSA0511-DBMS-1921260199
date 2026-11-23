@@ -1,0 +1,23 @@
+{
+  "boundary_tests": {
+    "empty_file_ok": true,
+    "first_delivery": "COMMITTED",
+    "duplicate_replay": "REPLAY_IGNORED",
+    "balance_after_one_delivery_and_replay": {
+      "A": 90,
+      "B": 110
+    },
+    "ledger_rows_before_delete": 1,
+    "delete_last_key_ok": true,
+    "token_total": 200
+  },
+  "farm_ceiling_extension": {
+    "requests": 1000,
+    "ceiling_tokens_per_farm_per_day": 25,
+    "accepted_under_fixture_guard": 773,
+    "rejected_by_farm_ceiling": 227,
+    "farms_with_usage": 31,
+    "maximum_recorded_farm_usage": 25,
+    "note": "This is a separate domain-rule fixture, not included in the base token-only concurrency timing runs."
+  }
+}

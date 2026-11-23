@@ -1,0 +1,15 @@
+digraph Strategies {
+ graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.45", ranksep="0.65", fontname="Arial", label="RiverGate concurrency alternatives", labelloc=t, fontsize=18];
+ node [shape=box, style="rounded,filled", fillcolor="#eef4fb", color="#52749b", fontname="Arial", fontsize=10, margin="0.15,0.10"];
+ edge [fontname="Arial", fontsize=9, color="#52606d"];
+ A [label="A. Global serial queue\nOne transaction at a time\nSimple correctness baseline"];
+ B [label="B. Conservative strict 2PL\nAcquire all known X locks\nHold through COMMIT"];
+ C [label="C. Timestamp ordering\nR-TS / W-TS checks\nReject stale operation; retry"];
+ N [label="No control\nConcurrent read/write\nLost update / mixed report", fillcolor="#fff1ed", color="#c85a45"];
+ A -> V [label="global exclusion"];
+ B -> V [label="resource exclusion"];
+ C -> V [label="timestamp validation"];
+ N -> F [label="not reliable"];
+ V [label="Atomic movement\nDebit source + credit destination\nCOMMIT as one unit", shape=box, fillcolor="#edf7ef", color="#4b8b60"];
+ F [label="Invariant failure\nToken conservation can break", shape=box, fillcolor="#fff1ed", color="#c85a45"];
+}

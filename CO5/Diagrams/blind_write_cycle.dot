@@ -1,0 +1,7 @@
+digraph BlindWrite {
+ graph [rankdir=LR, bgcolor="white", pad="0.25", fontname="Arial", label="Blind writes: cycle in precedence graph", labelloc=t, fontsize=18];
+ node [shape=circle, style="filled", fillcolor="#eef4fb", color="#52749b", fontname="Arial", fontsize=13, width=.75, height=.75];
+ edge [fontname="Arial", fontsize=10, color="#2f6f9f", penwidth=2];
+ T1 -> T2 [label="w1(M) before w2(M)"];
+ T2 -> T1 [label="w2(M) before final w1(M)"];
+}

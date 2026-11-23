@@ -1,0 +1,93 @@
+RIVERGATE COOPERATIVE - REPRODUCIBLE SIMULATION RUN
+Python: 3.13.5 | Linux-6.18.57-x86_64-with-glibc2.41
+Seed: 5505; sizes=[10, 50, 200, 1000]; arrival=67/s; service=20.0ms; pools=32
+NOTE: These are controlled Python simulation results, not observed production traffic or database-server benchmarks.
+
+  10 uniform | Global serial execution                                 | throughput=   50.00/s | mean=    42.84ms | p95=    65.67ms | aborts=   0 | cycles=0
+  10 uniform | Conservative strict 2PL (cap 16)                        | throughput=   64.80/s | mean=    20.00ms | p95=    20.00ms | aborts=   0 | cycles=0
+  10 uniform | Strict timestamp ordering (commit-atomic validation)    | throughput=   54.05/s | mean=    36.53ms | p95=    50.69ms | aborts=   0 | cycles=0
+  10 skew81  | Global serial execution                                 | throughput=   50.00/s | mean=    42.84ms | p95=    65.67ms | aborts=   0 | cycles=0
+  10 skew81  | Conservative strict 2PL (cap 16)                        | throughput=   62.50/s | mean=    34.72ms | p95=    55.52ms | aborts=   0 | cycles=0
+  10 skew81  | Strict timestamp ordering (commit-atomic validation)    | throughput=   53.92/s | mean=    50.56ms | p95=    78.91ms | aborts=   3 | cycles=0
+  50 uniform | Global serial execution                                 | throughput=   50.00/s | mean=   144.33ms | p95=   258.51ms | aborts=   0 | cycles=0
+  50 uniform | Conservative strict 2PL (cap 16)                        | throughput=   66.55/s | mean=    20.41ms | p95=    25.07ms | aborts=   0 | cycles=0
+  50 uniform | Strict timestamp ordering (commit-atomic validation)    | throughput=   65.39/s | mean=    37.12ms | p95=    52.71ms | aborts=   0 | cycles=0
+  50 skew81  | Global serial execution                                 | throughput=   50.00/s | mean=   144.33ms | p95=   258.51ms | aborts=   0 | cycles=0
+  50 skew81  | Conservative strict 2PL (cap 16)                        | throughput=   59.52/s | mean=   109.51ms | p95=   207.76ms | aborts=   0 | cycles=0
+  50 skew81  | Strict timestamp ordering (commit-atomic validation)    | throughput=   63.15/s | mean=    64.25ms | p95=    79.72ms | aborts=  49 | cycles=0
+ 200 uniform | Global serial execution                                 | throughput=   50.00/s | mean=   524.93ms | p95=   979.10ms | aborts=   0 | cycles=0
+ 200 uniform | Conservative strict 2PL (cap 16)                        | throughput=   66.89/s | mean=    20.76ms | p95=    25.07ms | aborts=   0 | cycles=0
+ 200 uniform | Strict timestamp ordering (commit-atomic validation)    | throughput=   65.92/s | mean=    41.77ms | p95=    69.16ms | aborts=  38 | cycles=0
+ 200 skew81  | Global serial execution                                 | throughput=   50.00/s | mean=   524.93ms | p95=   979.10ms | aborts=   0 | cycles=0
+ 200 skew81  | Conservative strict 2PL (cap 16)                        | throughput=   60.98/s | mean=   441.63ms | p95=   786.27ms | aborts=   0 | cycles=0
+ 200 skew81  | Strict timestamp ordering (commit-atomic validation)    | throughput=   65.82/s | mean=    62.64ms | p95=    81.86ms | aborts= 199 | cycles=0
+1000 uniform | Global serial execution                                 | throughput=   50.00/s | mean=  2554.78ms | p95=  4835.82ms | aborts=   0 | cycles=0
+1000 uniform | Conservative strict 2PL (cap 16)                        | throughput=   66.98/s | mean=    20.66ms | p95=    25.07ms | aborts=   0 | cycles=0
+1000 uniform | Strict timestamp ordering (commit-atomic validation)    | throughput=   66.77/s | mean=    62.22ms | p95=    79.32ms | aborts= 951 | cycles=0
+1000 skew81  | Global serial execution                                 | throughput=   50.00/s | mean=  2554.78ms | p95=  4835.82ms | aborts=   0 | cycles=0
+1000 skew81  | Conservative strict 2PL (cap 16)                        | throughput=   58.96/s | mean=  2255.66ms | p95=  3917.31ms | aborts=   0 | cycles=0
+1000 skew81  | Strict timestamp ordering (commit-atomic validation)    | throughput=   66.80/s | mean=    63.02ms | p95=    80.52ms | aborts=1015 | cycles=0
+
+Validation checks passed: 24/24
+CRASH RECOVERY:
+  T285 modeled restart = 29.21s
+  T240 modeled restart = 24.93s
+  Token total initial/final = 220/220
+BOUNDARY TESTS:
+{
+  "empty_file_ok": true,
+  "first_delivery": "COMMITTED",
+  "duplicate_replay": "REPLAY_IGNORED",
+  "balance_after_one_delivery_and_replay": {
+    "A": 90,
+    "B": 110
+  },
+  "ledger_rows_before_delete": 1,
+  "delete_last_key_ok": true,
+  "token_total": 200
+}
+FARM CEILING EXTENSION:
+{
+  "requests": 1000,
+  "ceiling_tokens_per_farm_per_day": 25,
+  "accepted_under_fixture_guard": 773,
+  "rejected_by_farm_ceiling": 227,
+  "farms_with_usage": 31,
+  "maximum_recorded_farm_usage": 25,
+  "note": "This is a separate domain-rule fixture, not included in the base token-only concurrency timing runs."
+}
+ADMISSION CAP COMPARISON (1,000 skewed requests):
+{
+  "4": {
+    "mean_response_ms": 2301.7161194029845,
+    "p95_response_ms": 3957.9104477611945,
+    "mean_admission_wait_ms": 2232.5411940298504,
+    "mean_lock_wait_ms": 49.17492537313433,
+    "throughput_per_second": 57.537399309551205
+  },
+  "8": {
+    "mean_response_ms": 2260.5361194029847,
+    "p95_response_ms": 3932.5373134328347,
+    "mean_admission_wait_ms": 2126.317910447761,
+    "mean_lock_wait_ms": 114.21820895522387,
+    "throughput_per_second": 58.89281507656066
+  },
+  "16": {
+    "mean_response_ms": 2255.6561194029846,
+    "p95_response_ms": 3917.313432835821,
+    "mean_admission_wait_ms": 1991.9340298507461,
+    "mean_lock_wait_ms": 243.72208955223883,
+    "throughput_per_second": 58.9622641509434
+  },
+  "32": {
+    "mean_response_ms": 2254.1561194029846,
+    "p95_response_ms": 3917.313432835821,
+    "mean_admission_wait_ms": 1742.8211940298504,
+    "mean_lock_wait_ms": 491.3349253731343,
+    "throughput_per_second": 58.9622641509434
+  }
+}
+
+
+Wrote /mnt/data/CO5/outputs/simulation_results.json
+Wrote /mnt/data/CO5/outputs/performance_results.csv

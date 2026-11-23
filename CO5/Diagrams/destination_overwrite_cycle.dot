@@ -1,0 +1,7 @@
+digraph DestinationOverwrite {
+ graph [rankdir=LR, bgcolor="white", pad="0.25", fontname="Arial", label="Destination overwrite: precedence cycle", labelloc=t, fontsize=18];
+ node [shape=circle, style="filled", fillcolor="#eef4fb", color="#52749b", fontname="Arial", fontsize=13, width=.8, height=.8];
+ edge [fontname="Arial", fontsize=10, color="#b23a2b", penwidth=2];
+ T1 -> T2 [label="R1(B) before W2(B)"];
+ T2 -> T1 [label="R2(B) before W1(B)"];
+}

@@ -1,0 +1,1397 @@
+{
+  "generated_utc": "2026-11-23T04:40:56.540711+00:00",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "seed": 5505,
+  "assumptions": {
+    "arrival_rate_per_second": 67,
+    "arrival_interval_ms": 14.925373134328359,
+    "service_time_ms": 20.0,
+    "pool_count": 32,
+    "initial_balance_per_pool": 100000,
+    "admission_cap_2pl": 16,
+    "timestamp_jitter_ms": "deterministic uniform 0..34 ms; retry jitter 0..8 ms",
+    "model_note": "Deterministic Python transaction-level event simulation; not production DBMS measurements."
+  },
+  "experiments": {
+    "10_uniform": {
+      "parameters": {
+        "seed": 5505,
+        "arrival_interval_ms": 14.925373134328359,
+        "service_ms": 20.0,
+        "admission_cap_2pl": 16,
+        "pool_count": 32,
+        "hot_canal_share": null
+      },
+      "summary": [
+        {
+          "strategy": "Global serial execution",
+          "distribution": "uniform",
+          "transactions": 10,
+          "completed": 10,
+          "throughput_per_second": 50.0,
+          "mean_response_ms": 42.83582089552239,
+          "p95_response_ms": 65.67164179104478,
+          "abort_attempts": 0,
+          "total_attempts": 10,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 22.835820895522385,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 228.35820895522386,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 1,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99998
+        },
+        {
+          "strategy": "Conservative strict 2PL (cap 16)",
+          "distribution": "uniform",
+          "transactions": 10,
+          "completed": 10,
+          "throughput_per_second": 64.79690522243713,
+          "mean_response_ms": 20.000000000000004,
+          "p95_response_ms": 20.000000000000014,
+          "abort_attempts": 0,
+          "total_attempts": 10,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 16,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99998,
+          "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+        },
+        {
+          "strategy": "Strict timestamp ordering (commit-atomic validation)",
+          "distribution": "uniform",
+          "transactions": 10,
+          "completed": 10,
+          "throughput_per_second": 54.048232003510954,
+          "mean_response_ms": 36.533481150667754,
+          "p95_response_ms": 50.691569905444595,
+          "abort_attempts": 0,
+          "total_attempts": 10,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": "unbounded in TO model",
+          "timestamp_retries": 0,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99998,
+          "R_TS_W_TS": "read check TS>=W-TS; write check TS>=R-TS and TS>=W-TS"
+        }
+      ],
+      "committed_history": {
+        "serial": {
+          "vertices": 10,
+          "edges": 6,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_2pl": {
+          "vertices": 10,
+          "edges": 6,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_to": {
+          "vertices": 10,
+          "edges": 6,
+          "acyclic": true,
+          "note": "Edges are derived from per-pool order of successful atomic commit events."
+        }
+      }
+    },
+    "10_skew81": {
+      "parameters": {
+        "seed": 5505,
+        "arrival_interval_ms": 14.925373134328359,
+        "service_ms": 20.0,
+        "admission_cap_2pl": 16,
+        "pool_count": 32,
+        "hot_canal_share": 0.81
+      },
+      "summary": [
+        {
+          "strategy": "Global serial execution",
+          "distribution": "skew81",
+          "transactions": 10,
+          "completed": 10,
+          "throughput_per_second": 50.0,
+          "mean_response_ms": 42.83582089552239,
+          "p95_response_ms": 65.67164179104478,
+          "abort_attempts": 0,
+          "total_attempts": 10,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 22.835820895522385,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 228.35820895522386,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 1,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99992
+        },
+        {
+          "strategy": "Conservative strict 2PL (cap 16)",
+          "distribution": "skew81",
+          "transactions": 10,
+          "completed": 10,
+          "throughput_per_second": 62.5,
+          "mean_response_ms": 34.71641791044776,
+          "p95_response_ms": 55.522388059701484,
+          "abort_attempts": 0,
+          "total_attempts": 10,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 14.716417910447763,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 147.16417910447763,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 16,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99992,
+          "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+        },
+        {
+          "strategy": "Strict timestamp ordering (commit-atomic validation)",
+          "distribution": "skew81",
+          "transactions": 10,
+          "completed": 10,
+          "throughput_per_second": 53.91821142484333,
+          "mean_response_ms": 50.564742928711624,
+          "p95_response_ms": 78.90930276577122,
+          "abort_attempts": 3,
+          "total_attempts": 13,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": "unbounded in TO model",
+          "timestamp_retries": 3,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99992,
+          "R_TS_W_TS": "read check TS>=W-TS; write check TS>=R-TS and TS>=W-TS"
+        }
+      ],
+      "committed_history": {
+        "serial": {
+          "vertices": 10,
+          "edges": 9,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_2pl": {
+          "vertices": 10,
+          "edges": 9,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_to": {
+          "vertices": 10,
+          "edges": 9,
+          "acyclic": true,
+          "note": "Edges are derived from per-pool order of successful atomic commit events."
+        }
+      }
+    },
+    "50_uniform": {
+      "parameters": {
+        "seed": 5505,
+        "arrival_interval_ms": 14.925373134328359,
+        "service_ms": 20.0,
+        "admission_cap_2pl": 16,
+        "pool_count": 32,
+        "hot_canal_share": null
+      },
+      "summary": [
+        {
+          "strategy": "Global serial execution",
+          "distribution": "uniform",
+          "transactions": 50,
+          "completed": 50,
+          "throughput_per_second": 50.0,
+          "mean_response_ms": 144.32835820895522,
+          "p95_response_ms": 258.5074626865671,
+          "abort_attempts": 0,
+          "total_attempts": 50,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 124.32835820895521,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 6216.417910447761,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 1,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99997
+        },
+        {
+          "strategy": "Conservative strict 2PL (cap 16)",
+          "distribution": "uniform",
+          "transactions": 50,
+          "completed": 50,
+          "throughput_per_second": 66.54747715534366,
+          "mean_response_ms": 20.40597014925373,
+          "p95_response_ms": 25.074626865671632,
+          "abort_attempts": 0,
+          "total_attempts": 50,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.40597014925373115,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 20.29850746268656,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 16,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99997,
+          "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+        },
+        {
+          "strategy": "Strict timestamp ordering (commit-atomic validation)",
+          "distribution": "uniform",
+          "transactions": 50,
+          "completed": 50,
+          "throughput_per_second": 65.39259035102181,
+          "mean_response_ms": 37.12413749867328,
+          "p95_response_ms": 52.706973056762365,
+          "abort_attempts": 0,
+          "total_attempts": 50,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": "unbounded in TO model",
+          "timestamp_retries": 0,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99997,
+          "R_TS_W_TS": "read check TS>=W-TS; write check TS>=R-TS and TS>=W-TS"
+        }
+      ],
+      "committed_history": {
+        "serial": {
+          "vertices": 50,
+          "edges": 69,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_2pl": {
+          "vertices": 50,
+          "edges": 69,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_to": {
+          "vertices": 50,
+          "edges": 69,
+          "acyclic": true,
+          "note": "Edges are derived from per-pool order of successful atomic commit events."
+        }
+      }
+    },
+    "50_skew81": {
+      "parameters": {
+        "seed": 5505,
+        "arrival_interval_ms": 14.925373134328359,
+        "service_ms": 20.0,
+        "admission_cap_2pl": 16,
+        "pool_count": 32,
+        "hot_canal_share": 0.81
+      },
+      "summary": [
+        {
+          "strategy": "Global serial execution",
+          "distribution": "skew81",
+          "transactions": 50,
+          "completed": 50,
+          "throughput_per_second": 50.0,
+          "mean_response_ms": 144.32835820895522,
+          "p95_response_ms": 258.5074626865671,
+          "abort_attempts": 0,
+          "total_attempts": 50,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 124.32835820895521,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 6216.417910447761,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 1,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99960
+        },
+        {
+          "strategy": "Conservative strict 2PL (cap 16)",
+          "distribution": "skew81",
+          "transactions": 50,
+          "completed": 50,
+          "throughput_per_second": 59.523809523809526,
+          "mean_response_ms": 109.51044776119403,
+          "p95_response_ms": 207.76119402985069,
+          "abort_attempts": 0,
+          "total_attempts": 50,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 89.51044776119403,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 4475.522388059701,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 16,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99960,
+          "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+        },
+        {
+          "strategy": "Strict timestamp ordering (commit-atomic validation)",
+          "distribution": "skew81",
+          "transactions": 50,
+          "completed": 50,
+          "throughput_per_second": 63.152270896017015,
+          "mean_response_ms": 64.25494792194407,
+          "p95_response_ms": 79.72087368366886,
+          "abort_attempts": 49,
+          "total_attempts": 99,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": "unbounded in TO model",
+          "timestamp_retries": 49,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99960,
+          "R_TS_W_TS": "read check TS>=W-TS; write check TS>=R-TS and TS>=W-TS"
+        }
+      ],
+      "committed_history": {
+        "serial": {
+          "vertices": 50,
+          "edges": 70,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_2pl": {
+          "vertices": 50,
+          "edges": 70,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_to": {
+          "vertices": 50,
+          "edges": 70,
+          "acyclic": true,
+          "note": "Edges are derived from per-pool order of successful atomic commit events."
+        }
+      }
+    },
+    "200_uniform": {
+      "parameters": {
+        "seed": 5505,
+        "arrival_interval_ms": 14.925373134328359,
+        "service_ms": 20.0,
+        "admission_cap_2pl": 16,
+        "pool_count": 32,
+        "hot_canal_share": null
+      },
+      "summary": [
+        {
+          "strategy": "Global serial execution",
+          "distribution": "uniform",
+          "transactions": 200,
+          "completed": 200,
+          "throughput_per_second": 50.0,
+          "mean_response_ms": 524.9253731343283,
+          "p95_response_ms": 979.1044776119402,
+          "abort_attempts": 0,
+          "total_attempts": 200,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 504.9253731343283,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 100985.07462686567,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 1,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99994
+        },
+        {
+          "strategy": "Conservative strict 2PL (cap 16)",
+          "distribution": "uniform",
+          "transactions": 200,
+          "completed": 200,
+          "throughput_per_second": 66.88629330138764,
+          "mean_response_ms": 20.762686567164177,
+          "p95_response_ms": 25.07462686567169,
+          "abort_attempts": 0,
+          "total_attempts": 200,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.7626865671641769,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 152.5373134328354,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 16,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99994,
+          "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+        },
+        {
+          "strategy": "Strict timestamp ordering (commit-atomic validation)",
+          "distribution": "uniform",
+          "transactions": 200,
+          "completed": 200,
+          "throughput_per_second": 65.91947899284813,
+          "mean_response_ms": 41.772976782246495,
+          "p95_response_ms": 69.15778675879756,
+          "abort_attempts": 38,
+          "total_attempts": 238,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": "unbounded in TO model",
+          "timestamp_retries": 38,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99994,
+          "R_TS_W_TS": "read check TS>=W-TS; write check TS>=R-TS and TS>=W-TS"
+        }
+      ],
+      "committed_history": {
+        "serial": {
+          "vertices": 200,
+          "edges": 363,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_2pl": {
+          "vertices": 200,
+          "edges": 363,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_to": {
+          "vertices": 200,
+          "edges": 363,
+          "acyclic": true,
+          "note": "Edges are derived from per-pool order of successful atomic commit events."
+        }
+      }
+    },
+    "200_skew81": {
+      "parameters": {
+        "seed": 5505,
+        "arrival_interval_ms": 14.925373134328359,
+        "service_ms": 20.0,
+        "admission_cap_2pl": 16,
+        "pool_count": 32,
+        "hot_canal_share": 0.81
+      },
+      "summary": [
+        {
+          "strategy": "Global serial execution",
+          "distribution": "skew81",
+          "transactions": 200,
+          "completed": 200,
+          "throughput_per_second": 50.0,
+          "mean_response_ms": 524.9253731343283,
+          "p95_response_ms": 979.1044776119402,
+          "abort_attempts": 0,
+          "total_attempts": 200,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 504.9253731343283,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 100985.07462686567,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 1,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99838
+        },
+        {
+          "strategy": "Conservative strict 2PL (cap 16)",
+          "distribution": "skew81",
+          "transactions": 200,
+          "completed": 200,
+          "throughput_per_second": 60.97560975609756,
+          "mean_response_ms": 441.62537313432836,
+          "p95_response_ms": 786.2686567164178,
+          "abort_attempts": 0,
+          "total_attempts": 200,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 214.7149253731343,
+          "mean_lock_wait_ms": 206.910447761194,
+          "total_admission_wait_ms": 42942.98507462686,
+          "total_lock_wait_ms": 41382.0895522388,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 16,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99838,
+          "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+        },
+        {
+          "strategy": "Strict timestamp ordering (commit-atomic validation)",
+          "distribution": "skew81",
+          "transactions": 200,
+          "completed": 200,
+          "throughput_per_second": 65.81791679624322,
+          "mean_response_ms": 62.63988349786471,
+          "p95_response_ms": 81.86467982822569,
+          "abort_attempts": 199,
+          "total_attempts": 399,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": "unbounded in TO model",
+          "timestamp_retries": 199,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99838,
+          "R_TS_W_TS": "read check TS>=W-TS; write check TS>=R-TS and TS>=W-TS"
+        }
+      ],
+      "committed_history": {
+        "serial": {
+          "vertices": 200,
+          "edges": 362,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_2pl": {
+          "vertices": 200,
+          "edges": 362,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_to": {
+          "vertices": 200,
+          "edges": 362,
+          "acyclic": true,
+          "note": "Edges are derived from per-pool order of successful atomic commit events."
+        }
+      }
+    },
+    "1000_uniform": {
+      "parameters": {
+        "seed": 5505,
+        "arrival_interval_ms": 14.925373134328359,
+        "service_ms": 20.0,
+        "admission_cap_2pl": 16,
+        "pool_count": 32,
+        "hot_canal_share": null
+      },
+      "summary": [
+        {
+          "strategy": "Global serial execution",
+          "distribution": "uniform",
+          "transactions": 1000,
+          "completed": 1000,
+          "throughput_per_second": 50.0,
+          "mean_response_ms": 2554.7761194029845,
+          "p95_response_ms": 4835.820895522387,
+          "abort_attempts": 0,
+          "total_attempts": 1000,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 2534.7761194029845,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 2534776.1194029846,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 1,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99982
+        },
+        {
+          "strategy": "Conservative strict 2PL (cap 16)",
+          "distribution": "uniform",
+          "transactions": 1000,
+          "completed": 1000,
+          "throughput_per_second": 66.97722774256752,
+          "mean_response_ms": 20.66000000000001,
+          "p95_response_ms": 25.07462686567169,
+          "abort_attempts": 0,
+          "total_attempts": 1000,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.660000000000008,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 660.0000000000081,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 16,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99982,
+          "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+        },
+        {
+          "strategy": "Strict timestamp ordering (commit-atomic validation)",
+          "distribution": "uniform",
+          "transactions": 1000,
+          "completed": 1000,
+          "throughput_per_second": 66.77061340310443,
+          "mean_response_ms": 62.22031821287698,
+          "p95_response_ms": 79.32225283335424,
+          "abort_attempts": 951,
+          "total_attempts": 1951,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": "unbounded in TO model",
+          "timestamp_retries": 951,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99982,
+          "R_TS_W_TS": "read check TS>=W-TS; write check TS>=R-TS and TS>=W-TS"
+        }
+      ],
+      "committed_history": {
+        "serial": {
+          "vertices": 1000,
+          "edges": 1952,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_2pl": {
+          "vertices": 1000,
+          "edges": 1952,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_to": {
+          "vertices": 1000,
+          "edges": 1952,
+          "acyclic": true,
+          "note": "Edges are derived from per-pool order of successful atomic commit events."
+        }
+      }
+    },
+    "1000_skew81": {
+      "parameters": {
+        "seed": 5505,
+        "arrival_interval_ms": 14.925373134328359,
+        "service_ms": 20.0,
+        "admission_cap_2pl": 16,
+        "pool_count": 32,
+        "hot_canal_share": 0.81
+      },
+      "summary": [
+        {
+          "strategy": "Global serial execution",
+          "distribution": "skew81",
+          "transactions": 1000,
+          "completed": 1000,
+          "throughput_per_second": 50.0,
+          "mean_response_ms": 2554.7761194029845,
+          "p95_response_ms": 4835.820895522387,
+          "abort_attempts": 0,
+          "total_attempts": 1000,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 2534.7761194029845,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 2534776.1194029846,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 1,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99190
+        },
+        {
+          "strategy": "Conservative strict 2PL (cap 16)",
+          "distribution": "skew81",
+          "transactions": 1000,
+          "completed": 1000,
+          "throughput_per_second": 58.9622641509434,
+          "mean_response_ms": 2255.6561194029846,
+          "p95_response_ms": 3917.313432835821,
+          "abort_attempts": 0,
+          "total_attempts": 1000,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 1991.9340298507461,
+          "mean_lock_wait_ms": 243.72208955223883,
+          "total_admission_wait_ms": 1991934.029850746,
+          "total_lock_wait_ms": 243722.08955223882,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": 16,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99190,
+          "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+        },
+        {
+          "strategy": "Strict timestamp ordering (commit-atomic validation)",
+          "distribution": "skew81",
+          "transactions": 1000,
+          "completed": 1000,
+          "throughput_per_second": 66.80283717764905,
+          "mean_response_ms": 63.01704421356964,
+          "p95_response_ms": 80.51804499283207,
+          "abort_attempts": 1015,
+          "total_attempts": 2015,
+          "wait_for_cycles": 0,
+          "mean_admission_wait_ms": 0.0,
+          "mean_lock_wait_ms": 0.0,
+          "total_admission_wait_ms": 0.0,
+          "total_lock_wait_ms": 0.0,
+          "pool_count": 32,
+          "service_ms": 20.0,
+          "admission_cap": "unbounded in TO model",
+          "timestamp_retries": 1015,
+          "final_token_total": 3200000,
+          "minimum_pool_balance": 99190,
+          "R_TS_W_TS": "read check TS>=W-TS; write check TS>=R-TS and TS>=W-TS"
+        }
+      ],
+      "committed_history": {
+        "serial": {
+          "vertices": 1000,
+          "edges": 1928,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_2pl": {
+          "vertices": 1000,
+          "edges": 1928,
+          "acyclic": true,
+          "note": "Aggregate validation; explicit hand-worked precedence graphs are in the report."
+        },
+        "strict_to": {
+          "vertices": 1000,
+          "edges": 1936,
+          "acyclic": true,
+          "note": "Edges are derived from per-pool order of successful atomic commit events."
+        }
+      }
+    }
+  },
+  "extras": {
+    "schedule_fixtures": {
+      "destination_overwrite": {
+        "initial": "B=20; T1 credits 10 from A; T2 credits 5 from C",
+        "schedule": [
+          "r1(B=20)",
+          "r2(B=20)",
+          "w1(B=30)",
+          "w2(B=25)",
+          "c1",
+          "c2"
+        ],
+        "conflicts": [
+          "r1(B) before w2(B): T1->T2",
+          "r2(B) before w1(B): T2->T1",
+          "w1(B) before w2(B): T1->T2"
+        ],
+        "result": "Final B=25 although two credits (+10 and +5) should produce B=35. The graph has T1->T2 and T2->T1, so this schedule is not conflict-serializable; the lost credit makes the total token invariant fail."
+      },
+      "inconsistent_inventory_scan": {
+        "initial": "A=100, B=40, total=140; T1 transfers 10 from A to B",
+        "schedule": [
+          "R(A)=100 by Report",
+          "T1: W(A)=90",
+          "T1: W(B)=50",
+          "R(B)=50 by Report",
+          "Report total=150",
+          "C1"
+        ],
+        "conflict_edges": [
+          "R_Report(A) before W1(A): Report->T1",
+          "W1(B) before R_Report(B): T1->Report"
+        ],
+        "result": "The report reads A before and B after the transfer and displays 150, which never existed as a committed total. The cycle Report->T1->Report proves the interleaving is not conflict-serializable."
+      },
+      "independent_operations": {
+        "schedule": [
+          "T1: r(A),w(A),r(B),w(B),c1",
+          "T2: r(C),w(C),r(D),w(D),c2"
+        ],
+        "conflict_edges": [],
+        "result": "Disjoint resource sets commute; precedence graph has no edges and both serial orders are equivalent."
+      },
+      "blind_write_view_serializable": {
+        "schedule": [
+          "w1(Status='READY')",
+          "w2(Status='DISPATCHED')",
+          "w1(Status='RELEASED')"
+        ],
+        "conflict_edges": [
+          "T1->T2 from first w1 before w2",
+          "T2->T1 from w2 before final w1"
+        ],
+        "result": "Precedence graph has a cycle, so not conflict-serializable. With no reads and final writer T1, it is view-equivalent to serial order T2,T1; therefore view-serializable."
+      },
+      "interleavings": {
+        "m": 5,
+        "n": 4,
+        "count": 126,
+        "formula": "C(9,5)=9!/(5!4!)=126"
+      }
+    },
+    "wait_for_deadlock": {
+      "resources": {
+        "T1": [
+          "X(A)",
+          "wait-X(B)"
+        ],
+        "T2": [
+          "X(B)",
+          "wait-X(A)"
+        ]
+      },
+      "wait_for_edges": [
+        [
+          "T1",
+          "T2"
+        ],
+        [
+          "T2",
+          "T1"
+        ]
+      ],
+      "cycle": [
+        "T1",
+        "T2",
+        "T1"
+      ],
+      "victim": "T2 (younger transaction; release B and restart)",
+      "wait_die": "T1 older requests B held by younger T2: T1 waits; T2 younger requests A held by older T1: T2 dies; no cycle forms.",
+      "wound_wait": "T1 older requests B held by younger T2: T1 wounds/aborts T2; T1 proceeds; no cycle forms."
+    },
+    "crash_recovery": {
+      "checkpoint_state": {
+        "Canal-A": 100,
+        "Farm-1": 20,
+        "Canal-B": 60,
+        "Farm-2": 30,
+        "Farm-3": 10
+      },
+      "log": [
+        {
+          "lsn": 10,
+          "txn": "T1",
+          "type": "BEGIN"
+        },
+        {
+          "lsn": 11,
+          "txn": "T1",
+          "type": "UPDATE",
+          "item": "Canal-A",
+          "before": 100,
+          "after": 80
+        },
+        {
+          "lsn": 12,
+          "txn": "T1",
+          "type": "UPDATE",
+          "item": "Farm-1",
+          "before": 20,
+          "after": 40
+        },
+        {
+          "lsn": 13,
+          "txn": "T2",
+          "type": "BEGIN"
+        },
+        {
+          "lsn": 14,
+          "txn": "T2",
+          "type": "UPDATE",
+          "item": "Canal-B",
+          "before": 60,
+          "after": 50
+        },
+        {
+          "lsn": 15,
+          "txn": "T2",
+          "type": "UPDATE",
+          "item": "Farm-2",
+          "before": 30,
+          "after": 40
+        },
+        {
+          "lsn": 16,
+          "txn": "T1",
+          "type": "COMMIT"
+        },
+        {
+          "lsn": 17,
+          "txn": "T3",
+          "type": "BEGIN"
+        },
+        {
+          "lsn": 18,
+          "txn": "T3",
+          "type": "UPDATE",
+          "item": "Canal-A",
+          "before": 80,
+          "after": 75
+        },
+        {
+          "lsn": 19,
+          "txn": "T3",
+          "type": "UPDATE",
+          "item": "Farm-3",
+          "before": 10,
+          "after": 15
+        },
+        {
+          "lsn": 20,
+          "txn": "T2",
+          "type": "COMMIT"
+        },
+        {
+          "lsn": 21,
+          "txn": "T4",
+          "type": "BEGIN"
+        },
+        {
+          "lsn": 22,
+          "txn": "T4",
+          "type": "UPDATE",
+          "item": "Canal-B",
+          "before": 50,
+          "after": 47
+        },
+        {
+          "lsn": 23,
+          "txn": "CRASH",
+          "type": "CRASH"
+        }
+      ],
+      "winners": [
+        "T1",
+        "T2"
+      ],
+      "losers": [
+        "T3",
+        "T4"
+      ],
+      "immediate_update": {
+        "pre_recovery_disk_state": {
+          "Canal-A": 75,
+          "Farm-1": 40,
+          "Canal-B": 47,
+          "Farm-2": 40,
+          "Farm-3": 15
+        },
+        "redo": [
+          "T1 Canal-A=80",
+          "T1 Farm-1=40",
+          "T2 Canal-B=50",
+          "T2 Farm-2=40"
+        ],
+        "undo_reverse_order": [
+          "T4 Canal-B: 47->50",
+          "T3 Farm-3: 15->10",
+          "T3 Canal-A: 75->80"
+        ],
+        "final_state": {
+          "Canal-A": 80,
+          "Farm-1": 40,
+          "Canal-B": 50,
+          "Farm-2": 40,
+          "Farm-3": 10
+        }
+      },
+      "deferred_update": {
+        "redo_winners": [
+          "T1",
+          "T2"
+        ],
+        "undo_losers": [],
+        "final_state": {
+          "Canal-A": 80,
+          "Farm-1": 40,
+          "Canal-B": 50,
+          "Farm-2": 40,
+          "Farm-3": 10
+        }
+      },
+      "token_total_initial": 220,
+      "token_total_final": 220,
+      "restart_model": {
+        "transactions_per_second": 67,
+        "log_bytes_per_transaction": 176,
+        "update_records_per_transaction": 2,
+        "scan_bandwidth_bytes_per_second": 1048576,
+        "redo_updates_per_second": 1600,
+        "undo_updates_per_second": 1500,
+        "fixed_restart_seconds": 2.0,
+        "worst_case_loser_update_records": 200,
+        "formula": "T = 2 + (176*67*I/1048576) + (2*67*I/1600) + (200/1500)",
+        "I_285_seconds": 29.207115681966144,
+        "I_240_seconds": 24.932307942708334
+      }
+    },
+    "farm_ceiling_extension": {
+      "requests": 1000,
+      "ceiling_tokens_per_farm_per_day": 25,
+      "accepted_under_fixture_guard": 773,
+      "rejected_by_farm_ceiling": 227,
+      "farms_with_usage": 31,
+      "maximum_recorded_farm_usage": 25,
+      "note": "This is a separate domain-rule fixture, not included in the base token-only concurrency timing runs."
+    },
+    "boundary_tests": {
+      "empty_file_ok": true,
+      "first_delivery": "COMMITTED",
+      "duplicate_replay": "REPLAY_IGNORED",
+      "balance_after_one_delivery_and_replay": {
+        "A": 90,
+        "B": 110
+      },
+      "ledger_rows_before_delete": 1,
+      "delete_last_key_ok": true,
+      "token_total": 200
+    },
+    "validation_checks": [
+      {
+        "transactions": 10,
+        "distribution": "uniform",
+        "strategy": "Global serial execution",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 10,
+        "distribution": "uniform",
+        "strategy": "Conservative strict 2PL (cap 16)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 10,
+        "distribution": "uniform",
+        "strategy": "Strict timestamp ordering (commit-atomic validation)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 10,
+        "distribution": "skew81",
+        "strategy": "Global serial execution",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 10,
+        "distribution": "skew81",
+        "strategy": "Conservative strict 2PL (cap 16)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 10,
+        "distribution": "skew81",
+        "strategy": "Strict timestamp ordering (commit-atomic validation)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 50,
+        "distribution": "uniform",
+        "strategy": "Global serial execution",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 50,
+        "distribution": "uniform",
+        "strategy": "Conservative strict 2PL (cap 16)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 50,
+        "distribution": "uniform",
+        "strategy": "Strict timestamp ordering (commit-atomic validation)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 50,
+        "distribution": "skew81",
+        "strategy": "Global serial execution",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 50,
+        "distribution": "skew81",
+        "strategy": "Conservative strict 2PL (cap 16)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 50,
+        "distribution": "skew81",
+        "strategy": "Strict timestamp ordering (commit-atomic validation)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 200,
+        "distribution": "uniform",
+        "strategy": "Global serial execution",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 200,
+        "distribution": "uniform",
+        "strategy": "Conservative strict 2PL (cap 16)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 200,
+        "distribution": "uniform",
+        "strategy": "Strict timestamp ordering (commit-atomic validation)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 200,
+        "distribution": "skew81",
+        "strategy": "Global serial execution",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 200,
+        "distribution": "skew81",
+        "strategy": "Conservative strict 2PL (cap 16)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 200,
+        "distribution": "skew81",
+        "strategy": "Strict timestamp ordering (commit-atomic validation)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 1000,
+        "distribution": "uniform",
+        "strategy": "Global serial execution",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 1000,
+        "distribution": "uniform",
+        "strategy": "Conservative strict 2PL (cap 16)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 1000,
+        "distribution": "uniform",
+        "strategy": "Strict timestamp ordering (commit-atomic validation)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 1000,
+        "distribution": "skew81",
+        "strategy": "Global serial execution",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 1000,
+        "distribution": "skew81",
+        "strategy": "Conservative strict 2PL (cap 16)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      },
+      {
+        "transactions": 1000,
+        "distribution": "skew81",
+        "strategy": "Strict timestamp ordering (commit-atomic validation)",
+        "completed_all": true,
+        "token_total_conserved": true,
+        "report_total_matches_initial": true,
+        "no_negative_pool": true
+      }
+    ],
+    "admission_comparison_skewed_1000": {
+      "4": {
+        "strategy": "Conservative strict 2PL (cap 4)",
+        "distribution": "skew81",
+        "transactions": 1000,
+        "completed": 1000,
+        "throughput_per_second": 57.537399309551205,
+        "mean_response_ms": 2301.7161194029845,
+        "p95_response_ms": 3957.9104477611945,
+        "abort_attempts": 0,
+        "total_attempts": 1000,
+        "wait_for_cycles": 0,
+        "mean_admission_wait_ms": 2232.5411940298504,
+        "mean_lock_wait_ms": 49.17492537313433,
+        "total_admission_wait_ms": 2232541.1940298504,
+        "total_lock_wait_ms": 49174.92537313433,
+        "pool_count": 32,
+        "service_ms": 20.0,
+        "admission_cap": 4,
+        "final_token_total": 3200000,
+        "minimum_pool_balance": 99190,
+        "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+      },
+      "8": {
+        "strategy": "Conservative strict 2PL (cap 8)",
+        "distribution": "skew81",
+        "transactions": 1000,
+        "completed": 1000,
+        "throughput_per_second": 58.89281507656066,
+        "mean_response_ms": 2260.5361194029847,
+        "p95_response_ms": 3932.5373134328347,
+        "abort_attempts": 0,
+        "total_attempts": 1000,
+        "wait_for_cycles": 0,
+        "mean_admission_wait_ms": 2126.317910447761,
+        "mean_lock_wait_ms": 114.21820895522387,
+        "total_admission_wait_ms": 2126317.910447761,
+        "total_lock_wait_ms": 114218.20895522388,
+        "pool_count": 32,
+        "service_ms": 20.0,
+        "admission_cap": 8,
+        "final_token_total": 3200000,
+        "minimum_pool_balance": 99190,
+        "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+      },
+      "16": {
+        "strategy": "Conservative strict 2PL (cap 16)",
+        "distribution": "skew81",
+        "transactions": 1000,
+        "completed": 1000,
+        "throughput_per_second": 58.9622641509434,
+        "mean_response_ms": 2255.6561194029846,
+        "p95_response_ms": 3917.313432835821,
+        "abort_attempts": 0,
+        "total_attempts": 1000,
+        "wait_for_cycles": 0,
+        "mean_admission_wait_ms": 1991.9340298507461,
+        "mean_lock_wait_ms": 243.72208955223883,
+        "total_admission_wait_ms": 1991934.029850746,
+        "total_lock_wait_ms": 243722.08955223882,
+        "pool_count": 32,
+        "service_ms": 20.0,
+        "admission_cap": 16,
+        "final_token_total": 3200000,
+        "minimum_pool_balance": 99190,
+        "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+      },
+      "32": {
+        "strategy": "Conservative strict 2PL (cap 32)",
+        "distribution": "skew81",
+        "transactions": 1000,
+        "completed": 1000,
+        "throughput_per_second": 58.9622641509434,
+        "mean_response_ms": 2254.1561194029846,
+        "p95_response_ms": 3917.313432835821,
+        "abort_attempts": 0,
+        "total_attempts": 1000,
+        "wait_for_cycles": 0,
+        "mean_admission_wait_ms": 1742.8211940298504,
+        "mean_lock_wait_ms": 491.3349253731343,
+        "total_admission_wait_ms": 1742821.1940298504,
+        "total_lock_wait_ms": 491334.9253731343,
+        "pool_count": 32,
+        "service_ms": 20.0,
+        "admission_cap": 32,
+        "final_token_total": 3200000,
+        "minimum_pool_balance": 99190,
+        "deadlock_policy": "atomic all-lock acquisition; no partial lock hold"
+      }
+    },
+    "checkpoint_policy_comparison": {
+      "original_interval_seconds": 285,
+      "proposed_interval_seconds": 240,
+      "deadline_seconds": 35,
+      "modeled_restart_seconds_at_285": 29.207115681966144,
+      "modeled_restart_seconds_at_240": 24.932307942708334
+    }
+  }
+}

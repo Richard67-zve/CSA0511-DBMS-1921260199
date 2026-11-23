@@ -1,0 +1,7 @@
+digraph InconsistentScan {
+ graph [rankdir=LR, bgcolor="white", pad="0.25", fontname="Arial", label="Inconsistent summary: precedence cycle", labelloc=t, fontsize=18];
+ node [shape=box, style="rounded,filled", fillcolor="#eef4fb", color="#52749b", fontname="Arial", fontsize=12];
+ edge [fontname="Arial", fontsize=10, color="#b23a2b", penwidth=2];
+ Report -> T1 [label="R(A) before W1(A)"];
+ T1 -> Report [label="W1(B) before R(B)"];
+}

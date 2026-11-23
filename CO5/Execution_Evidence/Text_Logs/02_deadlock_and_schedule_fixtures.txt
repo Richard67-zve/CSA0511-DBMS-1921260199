@@ -1,0 +1,93 @@
+{
+  "wait_for_deadlock": {
+    "resources": {
+      "T1": [
+        "X(A)",
+        "wait-X(B)"
+      ],
+      "T2": [
+        "X(B)",
+        "wait-X(A)"
+      ]
+    },
+    "wait_for_edges": [
+      [
+        "T1",
+        "T2"
+      ],
+      [
+        "T2",
+        "T1"
+      ]
+    ],
+    "cycle": [
+      "T1",
+      "T2",
+      "T1"
+    ],
+    "victim": "T2 (younger transaction; release B and restart)",
+    "wait_die": "T1 older requests B held by younger T2: T1 waits; T2 younger requests A held by older T1: T2 dies; no cycle forms.",
+    "wound_wait": "T1 older requests B held by younger T2: T1 wounds/aborts T2; T1 proceeds; no cycle forms."
+  },
+  "schedules": {
+    "destination_overwrite": {
+      "initial": "B=20; T1 credits 10 from A; T2 credits 5 from C",
+      "schedule": [
+        "r1(B=20)",
+        "r2(B=20)",
+        "w1(B=30)",
+        "w2(B=25)",
+        "c1",
+        "c2"
+      ],
+      "conflicts": [
+        "r1(B) before w2(B): T1->T2",
+        "r2(B) before w1(B): T2->T1",
+        "w1(B) before w2(B): T1->T2"
+      ],
+      "result": "Final B=25 although two credits (+10 and +5) should produce B=35. The graph has T1->T2 and T2->T1, so this schedule is not conflict-serializable; the lost credit makes the total token invariant fail."
+    },
+    "inconsistent_inventory_scan": {
+      "initial": "A=100, B=40, total=140; T1 transfers 10 from A to B",
+      "schedule": [
+        "R(A)=100 by Report",
+        "T1: W(A)=90",
+        "T1: W(B)=50",
+        "R(B)=50 by Report",
+        "Report total=150",
+        "C1"
+      ],
+      "conflict_edges": [
+        "R_Report(A) before W1(A): Report->T1",
+        "W1(B) before R_Report(B): T1->Report"
+      ],
+      "result": "The report reads A before and B after the transfer and displays 150, which never existed as a committed total. The cycle Report->T1->Report proves the interleaving is not conflict-serializable."
+    },
+    "independent_operations": {
+      "schedule": [
+        "T1: r(A),w(A),r(B),w(B),c1",
+        "T2: r(C),w(C),r(D),w(D),c2"
+      ],
+      "conflict_edges": [],
+      "result": "Disjoint resource sets commute; precedence graph has no edges and both serial orders are equivalent."
+    },
+    "blind_write_view_serializable": {
+      "schedule": [
+        "w1(Status='READY')",
+        "w2(Status='DISPATCHED')",
+        "w1(Status='RELEASED')"
+      ],
+      "conflict_edges": [
+        "T1->T2 from first w1 before w2",
+        "T2->T1 from w2 before final w1"
+      ],
+      "result": "Precedence graph has a cycle, so not conflict-serializable. With no reads and final writer T1, it is view-equivalent to serial order T2,T1; therefore view-serializable."
+    },
+    "interleavings": {
+      "m": 5,
+      "n": 4,
+      "count": 126,
+      "formula": "C(9,5)=9!/(5!4!)=126"
+    }
+  }
+}

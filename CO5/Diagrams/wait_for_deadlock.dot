@@ -1,0 +1,9 @@
+digraph Deadlock {
+ graph [rankdir=LR, bgcolor="white", pad="0.25", fontname="Arial", label="Dynamic 2PL wait-for cycle", labelloc=t, fontsize=18];
+ node [shape=box, style="rounded,filled", fillcolor="#eef4fb", color="#52749b", fontname="Arial", fontsize=12, width=1.4, height=.65];
+ edge [fontname="Arial", fontsize=10, color="#b23a2b", penwidth=2];
+ T1 [label="T1 (older)\nholds X(A)\nwaits for X(B)"];
+ T2 [label="T2 (younger)\nholds X(B)\nwaits for X(A)"];
+ T1 -> T2 [label="waits for B"];
+ T2 -> T1 [label="waits for A"];
+}
